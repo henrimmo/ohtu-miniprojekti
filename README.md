@@ -2,6 +2,8 @@
 
 https://trello.com/b/iIAUuuAQ/sprintti-1
 
+https://travis-ci.org/henrimmo/ohtu-miniprojekti
+
 # definition of done
 
 - User storyille on määriteltävä hyväksymäkriteerit, jotka dokumentoidaan easyB:n Storyjen skenaarioiksi
