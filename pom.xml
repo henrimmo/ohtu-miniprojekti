@@ -32,6 +32,9 @@
 						<manifest>
 							<mainClass>main.App</mainClass>
 						</manifest>
+				        <descriptorRefs>
+      						<descriptorRef>jar-with-dependencies</descriptorRef>
+    					</descriptorRefs>
 					</archive>
 				</configuration>
 			</plugin>
