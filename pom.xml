@@ -20,7 +20,7 @@
 			  	<configuration>
 				<archive>
 			       <manifest>
-			            <mainClass>fully.qualified.MainClass</mainClass>
+			            <mainClass>main.App</mainClass>
 			       </manifest>
 			 	</archive>
 		 		</configuration>
