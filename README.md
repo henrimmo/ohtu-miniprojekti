@@ -1,5 +1,8 @@
 # ohtu-miniprojekti
+Product backlog:
+https://trello.com/b/fKmUQQTh/ohtu-miniprojekti
 
+Sprintin 1 backlog:
 https://trello.com/b/iIAUuuAQ/sprintti-1
 
 [![Build Status](https://travis-ci.org/henrimmo/ohtu-miniprojekti.png)](https://travis-ci.org/henrimmo/ohtu-miniprojekti)
