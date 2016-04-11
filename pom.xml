@@ -111,14 +111,6 @@
                     </storyReport>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.eluder.coveralls</groupId>
-                <artifactId>coveralls-maven-plugin</artifactId>
-                <version>4.1.0</version>
-                <configuration>
-                    <repoToken>P2yGWALkc7TPmn8RG49d8QQGWYhNqgKiC</repoToken>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 </project>
