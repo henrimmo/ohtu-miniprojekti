@@ -1,8 +1,12 @@
 # ohtu-miniprojekti
+Product backlog:
+https://trello.com/b/fKmUQQTh/ohtu-miniprojekti
 
+Sprintin 1 backlog:
 https://trello.com/b/iIAUuuAQ/sprintti-1
 
-https://travis-ci.org/henrimmo/ohtu-miniprojekti
+[![Build Status](https://travis-ci.org/henrimmo/ohtu-miniprojekti.png)](https://travis-ci.org/henrimmo/ohtu-miniprojekti)
+[![Coverage Status](https://coveralls.io/repos/github/henrimmo/ohtu-miniprojekti/badge.svg?branch=master)](https://coveralls.io/github/henrimmo/ohtu-miniprojekti?branch=master)
 
 # definition of done
 
