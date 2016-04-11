@@ -36,6 +36,7 @@
 					</archive>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
@@ -63,7 +64,7 @@
 						<manifest>
 						    <addClasspath>true</addClasspath>
 						    <classpathPrefix>lib/</classpathPrefix>
-						    <mainClass>theMainClass</mainClass>
+						    <mainClass>main.App</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
