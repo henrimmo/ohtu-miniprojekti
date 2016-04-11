@@ -30,7 +30,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.maventest.App</mainClass>
+							<mainClass>main.App</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
