@@ -9,6 +9,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ArticleTest {
+    private String author1 = "Mr. Puu";
+    private String title1 = "Kuuset";
+    private String journal1 = "Luonto";
+    private int year1 = 2008;
+    private int volume1 = 4;
+    private Article article = new Article(author1, title1, journal1, year1, volume1);
     
     public ArticleTest() {
     }
@@ -34,12 +40,10 @@ public class ArticleTest {
      */
     @Test
     public void testSetAuthor() {
-        System.out.println("setAuthor");
-        String author = "";
+        String author = "Sini";
         Article instance = new Article();
         instance.setAuthor(author);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance.getAuthor(), "Sini");
     }
 
     /**
@@ -47,12 +51,10 @@ public class ArticleTest {
      */
     @Test
     public void testSetJournal() {
-        System.out.println("setJournal");
-        String journal = "";
+        String journal = "Colors";
         Article instance = new Article();
         instance.setJournal(journal);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance.getJournal(), "Colors");
     }
 
     /**
@@ -60,12 +62,10 @@ public class ArticleTest {
      */
     @Test
     public void testSetTitle() {
-        System.out.println("setTitle");
-        String title = "";
+        String title = "Fun";
         Article instance = new Article();
         instance.setTitle(title);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance.getTitle(), "Fun");
     }
 
     /**
@@ -73,12 +73,10 @@ public class ArticleTest {
      */
     @Test
     public void testSetVolume() {
-        System.out.println("setVolume");
-        int volume = 0;
+        int volume = 1;
         Article instance = new Article();
         instance.setVolume(volume);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance.getVolume(), 1);
     }
 
     /**
@@ -86,12 +84,10 @@ public class ArticleTest {
      */
     @Test
     public void testSetYear() {
-        System.out.println("setYear");
-        int year = 0;
+        int year = 2010;
         Article instance = new Article();
         instance.setYear(year);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance.getYear(), 2010);
     }
 
     /**
@@ -99,13 +95,9 @@ public class ArticleTest {
      */
     @Test
     public void testGetAuthor() {
-        System.out.println("getAuthor");
-        Article instance = new Article();
-        String expResult = "";
-        String result = instance.getAuthor();
+        String expResult = "Mr. Puu";
+        String result = article.getAuthor();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -113,13 +105,9 @@ public class ArticleTest {
      */
     @Test
     public void testGetJournal() {
-        System.out.println("getJournal");
-        Article instance = new Article();
-        String expResult = "";
-        String result = instance.getJournal();
+        String expResult = "Luonto";
+        String result = article.getJournal();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -127,13 +115,9 @@ public class ArticleTest {
      */
     @Test
     public void testGetTitle() {
-        System.out.println("getTitle");
-        Article instance = new Article();
-        String expResult = "";
-        String result = instance.getTitle();
+        String expResult = "Kuuset";
+        String result = article.getTitle();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -141,13 +125,9 @@ public class ArticleTest {
      */
     @Test
     public void testGetVolume() {
-        System.out.println("getVolume");
-        Article instance = new Article();
-        int expResult = 0;
-        int result = instance.getVolume();
+        int expResult = 4;
+        int result = article.getVolume();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -155,13 +135,9 @@ public class ArticleTest {
      */
     @Test
     public void testGetYear() {
-        System.out.println("getYear");
-        Article instance = new Article();
-        int expResult = 0;
-        int result = instance.getYear();
+        int expResult = 2008;
+        int result = article.getYear();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

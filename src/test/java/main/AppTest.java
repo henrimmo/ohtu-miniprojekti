@@ -31,7 +31,7 @@ public class AppTest {
 
     /**
      * Test of main method, of class App.
-     */
+    
     @Test
     public void testMain() {
         System.out.println("main");
@@ -39,6 +39,6 @@ public class AppTest {
         App.main(args);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
-    }
+    }*/
     
 }

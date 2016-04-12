@@ -11,6 +11,16 @@ public class Article extends AbstractPersistable<Long>{
     private int year;
     private int volume;
 
+    public Article(){
+    }
+    
+    public Article(String author, String title, String journal, int year, int volume){
+        this.author = author;
+        this.title = title;
+        this.journal = journal;
+        this.year = year;
+        this.volume = volume;
+    }
     public void setAuthor(String author) {
         this.author = author;
     }

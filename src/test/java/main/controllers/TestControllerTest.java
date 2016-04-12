@@ -31,7 +31,7 @@ public class TestControllerTest {
 
     /**
      * Test of test method, of class TestController.
-     */
+     
     @Test
     public void testTest() {
         System.out.println("test");
@@ -42,5 +42,5 @@ public class TestControllerTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-    
+    */
 }
