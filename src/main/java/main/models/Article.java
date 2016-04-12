@@ -1,4 +1,4 @@
-package models;
+package main.models;
 
 import javax.persistence.Entity;
 import org.springframework.data.jpa.domain.AbstractPersistable;

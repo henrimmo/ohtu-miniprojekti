@@ -1,6 +1,6 @@
-package repositories;
+package main.repositories;
 
-import models.Article;
+import main.models.Article;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ArticleRepository extends JpaRepository<Article, Long>{
