@@ -7,7 +7,6 @@ https://trello.com/b/iIAUuuAQ/sprintti-1
 
 Linkki sovellukseen:
 https://murmuring-meadow-58244.herokuapp.com/
-(Huom! Heroku toimii, mutta Travis ei vielä deployaa uusinta versiota sinne automaattisesti)
 
 [![Build Status](https://travis-ci.org/henrimmo/ohtu-miniprojekti.png)](https://travis-ci.org/henrimmo/ohtu-miniprojekti)
 [![Coverage Status](https://coveralls.io/repos/github/henrimmo/ohtu-miniprojekti/badge.svg?branch=master)](https://coveralls.io/github/henrimmo/ohtu-miniprojekti?branch=master)
