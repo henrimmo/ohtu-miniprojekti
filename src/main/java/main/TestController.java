@@ -13,6 +13,6 @@ public class TestController {
     @RequestMapping("/")
     @ResponseBody
     public String test(){
-        return "Pallot - ohtu-miniprojekti";
+        return "Pallot - ohtu-miniprojekti, test";
     }
 }
