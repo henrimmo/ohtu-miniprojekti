@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import main.repositories.ArticleRepository;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("articles")
@@ -20,12 +21,13 @@ public class ArticleController {
     
     Että ne saataisiin näkymälle ne pitää tallettaa modeliin
     (ks. http://wepa-2014.herokuapp.com/material/public_html/index.html#viikko1 kohta 3.4 tietokantojen käyttäminen)
-    
+    */
     @Autowired
     private ArticleRepository articleRepository;
     
     //Simple test for database
     @RequestMapping("/test")
+    @ResponseBody
     public String articleRepositoryTest(){
         if(articleRepository.findAll().isEmpty()){
             Article a = new Article();
@@ -40,5 +42,5 @@ public class ArticleController {
         Article r = articleRepository.findOne(1L);
         return r.getTitle() + ", " + r.getAuthor();
     }
-    */
+    
 }
