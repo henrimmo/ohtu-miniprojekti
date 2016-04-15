@@ -5,6 +5,9 @@ https://trello.com/b/fKmUQQTh/ohtu-miniprojekti
 Sprintin 1 backlog:
 https://trello.com/b/iIAUuuAQ/sprintti-1
 
+Sprintin 2 backlog:
+https://trello.com/b/CCsGRm3z/sprintti-2
+
 Linkki sovellukseen:
 https://murmuring-meadow-58244.herokuapp.com/
 
