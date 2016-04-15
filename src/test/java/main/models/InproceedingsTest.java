@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package main.models;
 
 import org.junit.After;
@@ -12,11 +8,12 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Outi
- */
 public class InproceedingsTest {
+    private String author1 = "Jouko ja Jutta";
+    private String title1 = "Kiertoreitti";
+    private String booktitle1 = "Sopulin kulku";
+    private int year1 = 2015;
+    private Inproceedings inproceedings = new Inproceedings(author1, title1, booktitle1, year1);
     
     public InproceedingsTest() {
     }
@@ -42,12 +39,10 @@ public class InproceedingsTest {
      */
     @Test
     public void testSetAuthor() {
-        System.out.println("setAuthor");
-        String author = "";
+        String author = "Herra";
         Inproceedings instance = new Inproceedings();
         instance.setAuthor(author);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance.getAuthor(), "Herra");
     }
 
     /**
@@ -55,12 +50,10 @@ public class InproceedingsTest {
      */
     @Test
     public void testSetBooktitle() {
-        System.out.println("setBooktitle");
-        String booktitle = "";
+        String booktitle = "Jaha";
         Inproceedings instance = new Inproceedings();
         instance.setBooktitle(booktitle);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance.getBooktitle(), "Jaha");
     }
 
     /**
@@ -68,12 +61,10 @@ public class InproceedingsTest {
      */
     @Test
     public void testSetTitle() {
-        System.out.println("setTitle");
-        String title = "";
+        String title = "Oho";
         Inproceedings instance = new Inproceedings();
         instance.setTitle(title);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance.getTitle(), "Oho");
     }
 
     /**
@@ -81,12 +72,10 @@ public class InproceedingsTest {
      */
     @Test
     public void testSetYear() {
-        System.out.println("setYear");
-        int year = 0;
+        int year = 2000;
         Inproceedings instance = new Inproceedings();
         instance.setYear(year);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance.getYear(), 2000);
     }
 
     /**
@@ -94,13 +83,9 @@ public class InproceedingsTest {
      */
     @Test
     public void testGetAuthor() {
-        System.out.println("getAuthor");
-        Inproceedings instance = new Inproceedings();
-        String expResult = "";
-        String result = instance.getAuthor();
+        String expResult = "Jouko ja Jutta";
+        String result = inproceedings.getAuthor();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -108,13 +93,9 @@ public class InproceedingsTest {
      */
     @Test
     public void testGetBooktitle() {
-        System.out.println("getBooktitle");
-        Inproceedings instance = new Inproceedings();
-        String expResult = "";
-        String result = instance.getBooktitle();
+        String expResult = "Sopulin kulku";
+        String result = inproceedings.getBooktitle();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -122,13 +103,9 @@ public class InproceedingsTest {
      */
     @Test
     public void testGetTitle() {
-        System.out.println("getTitle");
-        Inproceedings instance = new Inproceedings();
-        String expResult = "";
-        String result = instance.getTitle();
+        String expResult = "Kiertoreitti";
+        String result = inproceedings.getTitle();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -136,13 +113,9 @@ public class InproceedingsTest {
      */
     @Test
     public void testGetYear() {
-        System.out.println("getYear");
-        Inproceedings instance = new Inproceedings();
-        int expResult = 0;
-        int result = instance.getYear();
+        int expResult = 2015;
+        int result = inproceedings.getYear();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }

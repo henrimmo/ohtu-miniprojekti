@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package main.models;
 
 import org.junit.After;
@@ -12,11 +8,12 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-/**
- *
- * @author Outi
- */
 public class BookTest {
+    private String author1 = "Liisa";
+    private String title1 = "Viikossa";
+    private String publisher1 = "Kuustonen";
+    private int year1 = 1873;
+    private Book book = new Book(author1, title1, publisher1, year1);
     
     public BookTest() {
     }
@@ -42,12 +39,10 @@ public class BookTest {
      */
     @Test
     public void testSetAuthor() {
-        System.out.println("setAuthor");
-        String author = "";
+        String author = "Seppo";
         Book instance = new Book();
         instance.setAuthor(author);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance.getAuthor(), "Seppo");
     }
 
     /**
@@ -55,12 +50,10 @@ public class BookTest {
      */
     @Test
     public void testSetPublisher() {
-        System.out.println("setPublisher");
-        String publisher = "";
+        String publisher = "Otava";
         Book instance = new Book();
         instance.setPublisher(publisher);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance.getPublisher(), "Otava");
     }
 
     /**
@@ -68,12 +61,10 @@ public class BookTest {
      */
     @Test
     public void testSetTitle() {
-        System.out.println("setTitle");
-        String title = "";
+        String title = "Oravat kuussa";
         Book instance = new Book();
         instance.setTitle(title);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance.getTitle(), "Oravat kuussa");
     }
 
     /**
@@ -81,12 +72,10 @@ public class BookTest {
      */
     @Test
     public void testSetYear() {
-        System.out.println("setYear");
-        int year = 0;
+        int year = 1999;
         Book instance = new Book();
         instance.setYear(year);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(instance.getYear(), 1999);
     }
 
     /**
@@ -94,13 +83,9 @@ public class BookTest {
      */
     @Test
     public void testGetAuthor() {
-        System.out.println("getAuthor");
-        Book instance = new Book();
-        String expResult = "";
-        String result = instance.getAuthor();
+        String expResult = "Liisa";
+        String result = book.getAuthor();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -108,13 +93,9 @@ public class BookTest {
      */
     @Test
     public void testGetPublisher() {
-        System.out.println("getPublisher");
-        Book instance = new Book();
-        String expResult = "";
-        String result = instance.getPublisher();
+        String expResult = "Kuustonen";
+        String result = book.getPublisher();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -122,13 +103,9 @@ public class BookTest {
      */
     @Test
     public void testGetTitle() {
-        System.out.println("getTitle");
-        Book instance = new Book();
-        String expResult = "";
-        String result = instance.getTitle();
+        String expResult = "Viikossa";
+        String result = book.getTitle();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
 
     /**
@@ -136,13 +113,9 @@ public class BookTest {
      */
     @Test
     public void testGetYear() {
-        System.out.println("getYear");
-        Book instance = new Book();
-        int expResult = 0;
-        int result = instance.getYear();
+        int expResult = 1873;
+        int result = book.getYear();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
     }
     
 }
