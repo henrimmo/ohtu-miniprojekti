@@ -53,7 +53,7 @@ public class Inproceedings extends AbstractPersistable<Long>{
     }
     
     public String toBibText(){
-        String s = "@ARTICLE{" + this.author + this.year
+        String s = "@INPROCEEDINGS{" + this.author + this.year
                 + ", author={" + this.author + "}"
                 + ", title={" + this.title + "}"
                 + ", booktitle={" + this.booktitle + "}"

@@ -118,4 +118,11 @@ public class InproceedingsTest {
         assertEquals(expResult, result);
     }
     
+    @Test
+    public void testToBibText() {
+        assertEquals("@INPROCEEDINGS{Jouko ja Jutta2015, author={Jouko ja Jutta}, " +
+                "title={Kiertoreitti}, booktitle={Sopulin kulku}, year={2015},}",
+                inproceedings.toBibText());
+    }
+    
 }

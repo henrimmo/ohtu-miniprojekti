@@ -118,4 +118,11 @@ public class BookTest {
         assertEquals(expResult, result);
     }
     
+    @Test
+    public void testToBibText() {
+        assertEquals("@BOOK{Liisa1873, author={Liisa}, " +
+                "title={Viikossa}, publisher={Kuustonen}, year={1873},}",
+                book.toBibText());
+    }
+    
 }

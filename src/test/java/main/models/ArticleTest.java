@@ -119,4 +119,11 @@ public class ArticleTest {
         assertEquals(expResult, result);
     }
     
+    @Test
+    public void testToBibText() {
+        assertEquals("@ARTICLE{Mr. Puu2008, author={Mr. Puu}, " +
+                "title={Kuuset}, journal={Luonto}, year={2008},}",
+                article.toBibText());
+    }
+    
 }
