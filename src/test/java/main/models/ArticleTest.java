@@ -13,8 +13,7 @@ public class ArticleTest {
     private String title1 = "Kuuset";
     private String journal1 = "Luonto";
     private int year1 = 2008;
-    private int volume1 = 4;
-    private Article article = new Article(author1, title1, journal1, year1, volume1);
+    private Article article = new Article(author1, title1, journal1, year1);
     
     public ArticleTest() {
     }
@@ -68,16 +67,6 @@ public class ArticleTest {
         assertEquals(instance.getTitle(), "Fun");
     }
 
-    /**
-     * Test of setVolume method, of class Article.
-     */
-    @Test
-    public void testSetVolume() {
-        int volume = 1;
-        Article instance = new Article();
-        instance.setVolume(volume);
-        assertEquals(instance.getVolume(), 1);
-    }
 
     /**
      * Test of setYear method, of class Article.
@@ -117,16 +106,6 @@ public class ArticleTest {
     public void testGetTitle() {
         String expResult = "Kuuset";
         String result = article.getTitle();
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of getVolume method, of class Article.
-     */
-    @Test
-    public void testGetVolume() {
-        int expResult = 4;
-        int result = article.getVolume();
         assertEquals(expResult, result);
     }
 

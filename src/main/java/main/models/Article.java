@@ -9,17 +9,15 @@ public class Article extends AbstractPersistable<Long>{
     private String title;
     private String journal;
     private int year;
-    private int volume;
 
     public Article(){
     }
     
-    public Article(String author, String title, String journal, int year, int volume){
+    public Article(String author, String title, String journal, int year){
         this.author = author;
         this.title = title;
         this.journal = journal;
         this.year = year;
-        this.volume = volume;
     }
     public void setAuthor(String author) {
         this.author = author;
@@ -31,10 +29,6 @@ public class Article extends AbstractPersistable<Long>{
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
     }
 
     public void setYear(int year) {
@@ -53,11 +47,19 @@ public class Article extends AbstractPersistable<Long>{
         return title;
     }
 
-    public int getVolume() {
-        return volume;
-    }
 
     public int getYear() {
         return year;
+    }
+    
+    public String toBibText(){
+        String s = "@ARTICLE{" + this.author + this.year
+                + ", author={" + this.author + "}"
+                + ", title={" + this.title + "}"
+                + ", journal={" + this.journal + "}"
+                + ", year={" + this.year + "}"
+                + ",}";
+                
+        return s;
     }
 }

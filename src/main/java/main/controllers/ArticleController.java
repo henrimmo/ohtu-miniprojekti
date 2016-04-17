@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class ArticleController {
     
     /*
-    EI TOIMI
-    
     Artikkeleitä voidaan hakea esim:
     kaikki artikkelit:          articleRepository.findAll();
     id:n perusteella(long):     articleRepository.findOne(id);
@@ -34,13 +32,12 @@ public class ArticleController {
             a.setTitle("Test name");
             a.setJournal("Test journal");
             a.setAuthor("Test Author");
-            a.setVolume(1);
             a.setYear(2016);
             articleRepository.save(a);
         }
         
         Article r = articleRepository.findOne(1L);
-        return r.getTitle() + ", " + r.getAuthor();
+        return r.toBibText();
     }
     
 }

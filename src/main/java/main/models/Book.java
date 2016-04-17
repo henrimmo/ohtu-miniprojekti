@@ -1,7 +1,11 @@
 
 package main.models;
 
-public class Book {
+import javax.persistence.Entity;
+import org.springframework.data.jpa.domain.AbstractPersistable;
+
+@Entity
+public class Book extends AbstractPersistable<Long>{
     private String author;
     private String title;
     private String publisher;
@@ -46,5 +50,16 @@ public class Book {
     
     public int getYear() {
         return year;
+    }
+    
+    public String toBibText(){
+        String s = "@BOOK{" + this.author + this.year
+                + ", author={" + this.author + "}"
+                + ", title={" + this.title + "}"
+                + ", publisher={" + this.publisher + "}"
+                + ", year={" + this.year + "}"
+                + ",}";
+                
+        return s;
     }
 }
