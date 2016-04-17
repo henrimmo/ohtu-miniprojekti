@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Artikkelilista</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        
+        <table>
+            <thead>
+              <tr>
+                <th>Author</th>
+                <th>Title</th>
+                <th>Journal</th>
+                <th>Year</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="article : ${aList}">
+                <td th:text="${article.author}"></td>
+                <td th:text="${article.title}"></td>
+                <td th:text="${article.journal}"></td>
+                <td th:text="${article.year}"></td>
+              </tr>
+            </tbody>
+        </table>
+        <p></p>
+        <table>
+            <thead>
+              <tr>
+                <th>Author</th>
+                <th>Title</th>
+                <th>Publisher</th>
+                <th>Year</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="book : ${bList}">
+                <td th:text="${book.author}"></td>
+                <td th:text="${book.title}"></td>
+                <td th:text="${book.publisher}"></td>
+                <td th:text="${book.year}"></td>
+              </tr>
+            </tbody>
+        </table>
+        <p></p>
+        <table>
+            <thead>
+              <tr>
+                <th>Author</th>
+                <th>Title</th>
+                <th>Booktitle</th>
+                <th>Year</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="inproceedings : ${iList}">
+                <td th:text="${inproceedings.author}"></td>
+                <td th:text="${inproceedings.title}"></td>
+                <td th:text="${inproceedings.booktitle}"></td>
+                <td th:text="${inproceedings.year}"></td>
+              </tr>
+            </tbody>
+        </table>
+        
+        
+    </body>
+</html>
