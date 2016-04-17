@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import main.repositories.ArticleRepository;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -38,6 +41,19 @@ public class ArticleController {
         
         Article r = articleRepository.findOne(1L);
         return r.toBibText();
+    }
+    
+    @RequestMapping(value="/new", method=RequestMethod.GET)
+    public String greetingForm(Model model) {
+        model.addAttribute("article", new Article());
+        return "article";
+    }
+
+    @RequestMapping(value="/new", method=RequestMethod.POST)
+    public String greetingSubmit(@ModelAttribute Article article, Model model) {
+        articleRepository.save(article);
+        model.addAttribute("article", article);
+        return "result";
     }
     
 }
