@@ -8,6 +8,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import javax.servlet.http.HttpServletResponse;
+import main.BibTexGenerator;
 import main.models.Article;
 import main.models.Book;
 import main.models.Inproceedings;
@@ -34,37 +35,21 @@ public class MainController {
     public void getAllBibtext(HttpServletResponse response) throws IOException{
         String filename = "bibtex.bib"; //...
         
-        String s = "";
+        BibTexGenerator generator = new BibTexGenerator();
         for(Article a: articleRepository.findAll()){
-            s += a.toBibText() + "\n";
+            generator.addEntry(a);
         }
         for(Book b: bookRepository.findAll()){
-            s += b.toBibText() + "\n";
+            generator.addEntry(b);
         }
         for(Inproceedings i: inproceedingsRepository.findAll()){
-            s += i.toBibText() + "\n";
+            generator.addEntry(i);
         }
         
-        
-        File file = new File(filename);
-        PrintWriter out = new PrintWriter(file);
-        out.append(s);
-        out.close();
-        
-        InputStream is = new FileInputStream(file);
         response.setContentType("text/bib");
         response.setHeader("Content-Disposition", "attachment; filename=\""
-                + file.getName() + "\"");
-        
-        OutputStream os = response.getOutputStream();
-        byte[] buffer = new byte[1024];
-        int len;
-        while ((len = is.read(buffer)) != -1) {
-            os.write(buffer, 0, len);
-        }
-        os.flush();
-        os.close();
-        is.close();
+                + filename + "\"");
+        response.getOutputStream().print(generator.generate());
     }
     
     @RequestMapping("/addtestdata")

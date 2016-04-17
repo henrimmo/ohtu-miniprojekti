@@ -40,7 +40,7 @@ public class ArticleController {
         }
         
         Article r = articleRepository.findOne(1L);
-        return r.toBibText();
+        return r.toBibTex();
     }
     
     @RequestMapping(value="/new", method=RequestMethod.GET)

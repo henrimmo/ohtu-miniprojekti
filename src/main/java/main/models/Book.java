@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
-public class Book extends AbstractPersistable<Long>{
+public class Book extends AbstractPersistable<Long> implements BibTexEntry {
     private String author;
     private String title;
     private String publisher;
@@ -51,15 +51,14 @@ public class Book extends AbstractPersistable<Long>{
     public int getYear() {
         return year;
     }
-    
-    public String toBibText(){
-        String s = "@BOOK{" + this.author + this.year
+
+    @Override
+    public String toBibTex() {
+        return "@BOOK{" + this.author + this.year
                 + ", author={" + this.author + "}"
                 + ", title={" + this.title + "}"
                 + ", publisher={" + this.publisher + "}"
                 + ", year={" + this.year + "}"
                 + ",}";
-                
-        return s;
     }
 }

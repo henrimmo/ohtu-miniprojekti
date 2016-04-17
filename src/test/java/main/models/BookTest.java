@@ -122,7 +122,7 @@ public class BookTest {
     public void testToBibText() {
         assertEquals("@BOOK{Liisa1873, author={Liisa}, " +
                 "title={Viikossa}, publisher={Kuustonen}, year={1873},}",
-                book.toBibText());
+                book.toBibTex());
     }
     
 }
