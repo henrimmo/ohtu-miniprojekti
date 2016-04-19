@@ -36,14 +36,14 @@ public class BookController {
     
     @RequestMapping(value="/new", method=RequestMethod.GET)
     public String greetingForm(Model model) {
-        model.addAttribute("article", new Book());
+        model.addAttribute("book", new Book());
         return "book";
     }
 
     @RequestMapping(value="/new", method=RequestMethod.POST)
     public String greetingSubmit(@ModelAttribute Book book, Model model) {
         bookRepository.save(book);
-        model.addAttribute("book", book);
-        return "result";
+        model.addAttribute("object", book);
+        return "redirect:/";
     }
 }

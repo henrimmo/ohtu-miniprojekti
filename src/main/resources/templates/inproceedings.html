@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Lisää artikkeli</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+    <form action="#" th:action="@{/inproceedings/new}" th:object="${inproceedings}" method="post">
+        <p>Author:  <input type="text" th:field="*{author}" /></p>
+        <p>Title: <input type="text" th:field="*{title}" /></p>
+        <p>Booktitle: <input type="text" th:field="*{booktitle}" /></p>
+        <p>Year: <input type="number" th:field="*{year}" /></p>
+        <p><input type="submit" value="Tallenna" /></p>
+    </form>
+    </body>
+</html>

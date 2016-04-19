@@ -52,8 +52,8 @@ public class ArticleController {
     @RequestMapping(value="/new", method=RequestMethod.POST)
     public String greetingSubmit(@ModelAttribute Article article, Model model) {
         articleRepository.save(article);
-        model.addAttribute("article", article);
-        return "result";
+        model.addAttribute("object", article);
+        return "redirect:/";
     }
 
 }

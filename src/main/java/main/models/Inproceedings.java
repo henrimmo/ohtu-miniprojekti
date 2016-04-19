@@ -12,6 +12,7 @@ public class Inproceedings extends AbstractPersistable<Long> implements BibTexEn
     private int year;
 
     public Inproceedings(){
+        
     }
     
     public Inproceedings(String author, String title, String booktitle, int year){

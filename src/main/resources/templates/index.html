@@ -7,8 +7,97 @@
     </head>
     <body>
         <h1>Kotisivu</h1>
-        <a href="/articles/new">Lisää artikkeli</a>
-        <a href="/list">Listaa viitteet</a>
-        <a href="/bibtex">Lataa BibTex-tiedosto</a>
+        <a href="/articles/new">Add article</a>
+        |
+        <a href="/books/new">Add book</a>
+        |
+        <a href="/inproceedings/new">Add inproceedings</a>
+        |
+        <a href="/bibtex">Download BibTeX</a>
+        
+        <p></p>
+        
+        <div th:if="${not #lists.isEmpty(aList)}">
+             <h3>Articles</h3>
+            <table>
+                <thead>
+                  <tr>
+                    <th>Author</th>
+                    <th>Title</th>
+                    <th>Journal</th>
+                    <th>Year</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="article : ${aList}">
+                    <td th:text="${article.author}"></td>
+                    <td th:text="${article.title}"></td>
+                    <td th:text="${article.journal}"></td>
+                    <td th:text="${article.year}"></td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div th:if="${#lists.isEmpty(aList)}">
+            <h3>No articles added yet</h3>
+        </div>
+        
+        <p></p>
+        
+        <div th:if="${not #lists.isEmpty(bList)}">
+            <h2>Books</h2>
+            <table>
+                <thead>
+                  <tr>
+                    <th>Author</th>
+                    <th>Title</th>
+                    <th>Publisher</th>
+                    <th>Year</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="book : ${bList}">
+                    <td th:text="${book.author}"></td>
+                    <td th:text="${book.title}"></td>
+                    <td th:text="${book.publisher}"></td>
+                    <td th:text="${book.year}"></td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div th:if="${#lists.isEmpty(bList)}">
+            <h3>No books added yet</h3>
+        </div>
+        
+       <p></p>
+       
+        <div th:if="${not #lists.isEmpty(iList)}">
+            <h2>Inproceedings</h2>
+            <table>
+                <thead>
+                  <tr>
+                    <th>Author</th>
+                    <th>Title</th>
+                    <th>Booktitle</th>
+                    <th>Year</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="inproceedings : ${iList}">
+                    <td th:text="${inproceedings.author}"></td>
+                    <td th:text="${inproceedings.title}"></td>
+                    <td th:text="${inproceedings.booktitle}"></td>
+                    <td th:text="${inproceedings.year}"></td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div th:if="${#lists.isEmpty(iList)}">
+            <h3>No inproceedings added yet</h3>
+        </div>
+        
     </body>
 </html>

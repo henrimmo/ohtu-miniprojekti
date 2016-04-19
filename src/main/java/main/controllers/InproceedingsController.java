@@ -36,14 +36,14 @@ public class InproceedingsController {
     
     @RequestMapping(value="/new", method=RequestMethod.GET)
     public String greetingForm(Model model) {
-        model.addAttribute("article", new Inproceedings());
-        return "article";
+        model.addAttribute("inproceedings", new Inproceedings());
+        return "inproceedings";
     }
 
     @RequestMapping(value="/new", method=RequestMethod.POST)
     public String greetingSubmit(@ModelAttribute Inproceedings inproceedings, Model model) {
         inproceedingsRepository.save(inproceedings);
-        model.addAttribute("inproceedings", inproceedings);
-        return "result";
+        model.addAttribute("object", inproceedings);
+        return "redirect:/";
     }
 }
