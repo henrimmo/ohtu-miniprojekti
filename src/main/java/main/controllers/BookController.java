@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+@Controller
+@RequestMapping("books")
 public class BookController {
     @Autowired
     private BookRepository bookRepository;
@@ -22,7 +24,7 @@ public class BookController {
         if(bookRepository.findAll().isEmpty()){
             Book b = new Book();
             b.setTitle("Test name");
-            b.setPublisher("Test journal");
+            b.setPublisher("Test publisher");
             b.setAuthor("Test Author");
             b.setYear(2016);
             bookRepository.save(b);
