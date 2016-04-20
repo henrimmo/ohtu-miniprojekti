@@ -2,11 +2,9 @@
 Product backlog:
 https://trello.com/b/fKmUQQTh/ohtu-miniprojekti
 
-Sprintin 1 backlog:
-https://trello.com/b/iIAUuuAQ/sprintti-1
+Sprintti 1: [backlog](https://trello.com/b/iIAUuuAQ/sprintti-1)
 
-Sprintin 2 backlog:
-https://trello.com/b/CCsGRm3z/sprintti-2
+Sprintti 2: [backlog](https://trello.com/b/CCsGRm3z/sprintti-2)
 
 Sprintti 3: [backlog](https://trello.com/b/mjpHLMcY/sprintti-3), [burndown](https://docs.google.com/spreadsheets/d/1OvkrYaAas34ywfmexkDi-9YgWbUSGTyZY3cJDD5krYc/edit?usp=sharing)
 
