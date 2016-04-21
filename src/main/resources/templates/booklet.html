@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Add a new booklet</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+    <form action="#" th:action="@{/booklets/new}" th:object="${booklet}" method="post">
+        <p>\cite:  <input type="text" th:field="*{cite}" /></p>
+        <p>Title: <input type="text" th:field="*{title}" /></p>
+        <p><input type="submit" value="Tallenna" /></p>
+    </form>
+    </body>
+</html>

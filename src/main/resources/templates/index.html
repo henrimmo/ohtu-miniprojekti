@@ -13,9 +13,11 @@
         |
         <a href="/inproceedings/new">Add inproceedings</a>
         |
+        <a href="/booklets/new">Add booklet</a>
+        |
         <a href="/bibtex">Download BibTeX</a>
         
-        <p></p>
+        <br></br>
         
         <div th:if="${not #lists.isEmpty(aList)}">
              <h3>Articles</h3>
@@ -43,7 +45,7 @@
             <h3>No articles added yet</h3>
         </div>
         
-        <p></p>
+        <br></br>
         
         <div th:if="${not #lists.isEmpty(bList)}">
             <h2>Books</h2>
@@ -71,7 +73,7 @@
             <h3>No books added yet</h3>
         </div>
         
-       <p></p>
+       <br></br>
        
         <div th:if="${not #lists.isEmpty(iList)}">
             <h2>Inproceedings</h2>
@@ -97,6 +99,30 @@
         
         <div th:if="${#lists.isEmpty(iList)}">
             <h3>No inproceedings added yet</h3>
+        </div>
+       
+       <br></br>
+        
+        <div th:if="${not #lists.isEmpty(blList)}">
+            <h2>Booklets</h2>
+            <table>
+                <thead>
+                  <tr>
+                    <th>\cite</th>
+                    <th>Title</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="booklet : ${blList}">
+                    <td th:text="${booklet.cite}"></td>
+                    <td th:text="${booklet.title}"></td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div th:if="${#lists.isEmpty(blList)}">
+            <h3>No booklets added yet</h3>
         </div>
         
     </body>

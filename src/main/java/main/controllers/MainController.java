@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import main.BibTexGenerator;
 import main.models.Article;
 import main.models.Book;
+import main.models.Booklet;
 import main.models.Inproceedings;
 import main.repositories.ArticleRepository;
 import main.repositories.BookRepository;
+import main.repositories.BookletRepository;
 import main.repositories.InproceedingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +34,8 @@ public class MainController {
     private BookRepository bookRepository;
     @Autowired
     private InproceedingsRepository inproceedingsRepository;
+    @Autowired
+    private BookletRepository bookletRepository;
 
     @RequestMapping("/bibtex")
     @ResponseBody
@@ -47,6 +51,9 @@ public class MainController {
         }
         for(Inproceedings i: inproceedingsRepository.findAll()){
             generator.addEntry(i);
+        }
+        for(Booklet bl: bookletRepository.findAll()){
+            generator.addEntry(bl);
         }
         
         response.setContentType("text/bib");
@@ -76,6 +83,7 @@ public class MainController {
         model.addAttribute("aList", articleRepository.findAll());
         model.addAttribute("bList", bookRepository.findAll());
         model.addAttribute("iList", inproceedingsRepository.findAll());
+        model.addAttribute("blList", bookletRepository.findAll());
         return "index";
     }
 }
