@@ -13,7 +13,7 @@ public class InproceedingsTest {
     private String title1 = "Kiertoreitti";
     private String booktitle1 = "Sopulin kulku";
     private int year1 = 2015;
-    private Inproceedings inproceedings = new Inproceedings(author1, title1, booktitle1, year1);
+    private Inproceedings inproceedings = new Inproceedings("jj15", author1, title1, booktitle1, year1);
     
     public InproceedingsTest() {
     }
@@ -120,7 +120,7 @@ public class InproceedingsTest {
     
     @Test
     public void testToBibText() {
-        assertEquals("@INPROCEEDINGS{Jouko ja Jutta2015, author={Jouko ja Jutta}, " +
+        assertEquals("@INPROCEEDINGS{jj15, author={Jouko ja Jutta}, " +
                 "title={Kiertoreitti}, booktitle={Sopulin kulku}, year={2015},}",
                 inproceedings.toBibTex());
     }

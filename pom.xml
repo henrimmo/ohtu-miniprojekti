@@ -112,7 +112,22 @@
                     <maxmem>256m</maxmem>
                     <!-- aggregated reports for multi-module projects -->
                     <aggregate>true</aggregate>
+                    <instrumentation>
+                        <ignoreTrivial>true</ignoreTrivial>
+                        <excludes>
+                            <exclude>main/controllers/**</exclude>
+                            <exclude>main/App.class</exclude>
+                        </excludes>
+                    </instrumentation>
                 </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>			
+                        <goals>
+                            <goal>cobertura</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

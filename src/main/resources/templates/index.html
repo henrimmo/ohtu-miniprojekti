@@ -108,13 +108,11 @@
             <table>
                 <thead>
                   <tr>
-                    <th>\cite</th>
                     <th>Title</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr th:each="booklet : ${blList}">
-                    <td th:text="${booklet.cite}"></td>
                     <td th:text="${booklet.title}"></td>
                   </tr>
                 </tbody>

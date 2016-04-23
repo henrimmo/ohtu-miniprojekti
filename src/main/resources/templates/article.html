@@ -7,6 +7,7 @@
     </head>
     <body>
     <form action="#" th:action="@{/articles/new}" th:object="${article}" method="post">
+        <p>Id:  <input type="text" th:field="*{id}" /></p>
         <p>Author:  <input type="text" th:field="*{author}" /></p>
         <p>Title: <input type="text" th:field="*{title}" /></p>
         <p>Journal: <input type="text" th:field="*{journal}" /></p>

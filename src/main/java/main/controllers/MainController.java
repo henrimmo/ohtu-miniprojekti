@@ -65,10 +65,10 @@ public class MainController {
     @RequestMapping("/addtestdata")
     @ResponseBody
     public String addTestData(){
-        Article a1 = new Article("Test Author","Test title","Test Journal",2000);
-        Article a2 = new Article("Second Author","Second title","Someother Journal",2001);
-        Book b = new Book("Book Author","Book 1","Publisher 1",2016);
-        Inproceedings i = new Inproceedings("Inproceedings Author","Inproceedings 1","Booktitle 1",2016);
+        Article a1 = new Article("test00", "Test Author","Test title","Test Journal",2000);
+        Article a2 = new Article("second01","Second Author","Second title","Someother Journal",2001);
+        Book b = new Book("book16","Book Author","Book 1","Publisher 1",2016);
+        Inproceedings i = new Inproceedings("inp16","Inproceedings Author","Inproceedings 1","Booktitle 1",2016);
         
         articleRepository.save(a1);
         articleRepository.save(a2);

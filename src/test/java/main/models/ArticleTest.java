@@ -13,7 +13,7 @@ public class ArticleTest {
     private String title1 = "Kuuset";
     private String journal1 = "Luonto";
     private int year1 = 2008;
-    private Article article = new Article(author1, title1, journal1, year1);
+    private Article article = new Article("puu08", author1, title1, journal1, year1);
     
     public ArticleTest() {
     }
@@ -121,7 +121,7 @@ public class ArticleTest {
     
     @Test
     public void testToBibText() {
-        assertEquals("@ARTICLE{Mr. Puu2008, author={Mr. Puu}, " +
+        assertEquals("@ARTICLE{puu08, author={Mr. Puu}, " +
                 "title={Kuuset}, journal={Luonto}, year={2008},}",
                 article.toBibTex());
     }

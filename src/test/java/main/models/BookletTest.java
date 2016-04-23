@@ -18,24 +18,12 @@ import static org.junit.Assert.*;
  */
 public class BookletTest {
     
-    private String cite = "SWEBOK";
     private String title1 = "Kissakirja2";
-    private Booklet booklet = new Booklet(cite, title1);
+    private Booklet booklet = new Booklet("kk", title1);
     
     public BookletTest() {
     }
     
-    /**
-     * Test of setCite method, of class Booklet.
-     */
-    @Test
-    public void testSetCite() {
-        String publisher = "COMP";
-        Booklet instance = new Booklet();
-        instance.setCite(publisher);
-        assertEquals(instance.getCite(), "COMP");
-    }
-
     /**
      * Test of setTitle method, of class Book.
      */
@@ -45,17 +33,6 @@ public class BookletTest {
         Booklet instance = new Booklet();
         instance.setTitle(title);
         assertEquals(instance.getTitle(), "Oravat kuussa");
-    }
-
-
-    /**
-     * Test of getCite method, of class Booklet.
-     */
-    @Test
-    public void testGetCite() {
-        String expResult = "SWEBOK";
-        String result = booklet.getCite();
-        assertEquals(expResult, result);
     }
 
     /**
@@ -71,7 +48,7 @@ public class BookletTest {
     
     @Test
     public void testToBibText() {
-        assertEquals("@BOOKLET{SWEBOK, " +
+        assertEquals("@BOOKLET{kk, " +
                 "title={Kissakirja2}}",
                 booklet.toBibTex());
     }

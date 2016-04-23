@@ -7,6 +7,7 @@
     </head>
     <body>
     <form action="#" th:action="@{/books/new}" th:object="${book}" method="post">
+        <p>Id:  <input type="text" th:field="*{id}" /></p>
         <p>Author:  <input type="text" th:field="*{author}" /></p>
         <p>Title: <input type="text" th:field="*{title}" /></p>
         <p>Publisher: <input type="text" th:field="*{publisher}" /></p>

@@ -1,32 +1,28 @@
 
 package main.models;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
-public class Booklet extends AbstractPersistable<Long> implements BibTexEntry {
-    private String cite;
+public class Booklet implements BibTexEntry, Serializable {
     private String title;
+    @Id
+    private String id;
 
     public Booklet(){
     }
     
-    public Booklet(String cite, String title){
-        this.cite = cite;
+    public Booklet(String id, String title){
+        this.id = id;
         this.title = title;
 
     }
-    public void setCite(String cite) {
-        this.cite = cite;
-    }
-
+    
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getCite() {
-        return cite;
     }
 
     public String getTitle() {
@@ -35,8 +31,16 @@ public class Booklet extends AbstractPersistable<Long> implements BibTexEntry {
 
     @Override
     public String toBibTex() {
-        return "@BOOKLET{" + this.cite
-                + ", title={" + this.title + "}"
+        return "@BOOKLET{" + id
+                + ", title={" + title + "}"
                 + "}";
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

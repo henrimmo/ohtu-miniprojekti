@@ -1,19 +1,23 @@
 package main.models;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
-public class Article extends AbstractPersistable<Long> implements BibTexEntry {
+public class Article implements BibTexEntry {
     private String author;
     private String title;
     private String journal;
     private int year;
+    @Id
+    private String id;
 
     public Article(){
     }
     
-    public Article(String author, String title, String journal, int year){
+    public Article(String id, String author, String title, String journal, int year){
+        this.id = id;
         this.author = author;
         this.title = title;
         this.journal = journal;
@@ -54,11 +58,19 @@ public class Article extends AbstractPersistable<Long> implements BibTexEntry {
     
     @Override
     public String toBibTex() {
-        return "@ARTICLE{" + this.author + this.year
-                + ", author={" + this.author + "}"
-                + ", title={" + this.title + "}"
-                + ", journal={" + this.journal + "}"
-                + ", year={" + this.year + "}"
+        return "@ARTICLE{" + id
+                + ", author={" + author + "}"
+                + ", title={" + title + "}"
+                + ", journal={" + journal + "}"
+                + ", year={" + year + "}"
                 + ",}";
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

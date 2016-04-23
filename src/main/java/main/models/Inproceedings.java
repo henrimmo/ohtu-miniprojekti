@@ -1,21 +1,26 @@
 
 package main.models;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
-public class Inproceedings extends AbstractPersistable<Long> implements BibTexEntry {
+public class Inproceedings implements BibTexEntry, Serializable {
     private String author;
     private String title;
     private String booktitle;
     private int year;
+    @Id
+    private String id;
 
     public Inproceedings(){
         
     }
     
-    public Inproceedings(String author, String title, String booktitle, int year){
+    public Inproceedings(String id, String author, String title, String booktitle, int year){
+        this.id = id;
         this.author = author;
         this.title = title;
         this.booktitle = booktitle;
@@ -55,11 +60,19 @@ public class Inproceedings extends AbstractPersistable<Long> implements BibTexEn
 
     @Override
     public String toBibTex() {
-        return "@INPROCEEDINGS{" + this.author + this.year
-                + ", author={" + this.author + "}"
-                + ", title={" + this.title + "}"
-                + ", booktitle={" + this.booktitle + "}"
-                + ", year={" + this.year + "}"
+        return "@INPROCEEDINGS{" + id
+                + ", author={" + author + "}"
+                + ", title={" + title + "}"
+                + ", booktitle={" + booktitle + "}"
+                + ", year={" + year + "}"
                 + ",}";
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

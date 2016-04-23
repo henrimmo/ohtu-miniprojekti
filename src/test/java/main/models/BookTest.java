@@ -13,7 +13,7 @@ public class BookTest {
     private String title1 = "Viikossa";
     private String publisher1 = "Kuustonen";
     private int year1 = 1873;
-    private Book book = new Book(author1, title1, publisher1, year1);
+    private Book book = new Book("liisa73", author1, title1, publisher1, year1);
     
     public BookTest() {
     }
@@ -120,7 +120,7 @@ public class BookTest {
     
     @Test
     public void testToBibText() {
-        assertEquals("@BOOK{Liisa1873, author={Liisa}, " +
+        assertEquals("@BOOK{liisa73, author={Liisa}, " +
                 "title={Viikossa}, publisher={Kuustonen}, year={1873},}",
                 book.toBibTex());
     }

@@ -23,7 +23,7 @@ public class BookletController {
     public String bookRepositoryTest(){
         if(bookletRepository.findAll().isEmpty()){
             Booklet b = new Booklet();
-            b.setCite("TEST");
+            b.setId("TEST");
             b.setTitle("Test name");
             bookletRepository.save(b);
         }
