@@ -127,6 +127,7 @@
                         <excludes>
                             <exclude>main/controllers/**</exclude>
                             <exclude>main/App.class</exclude>
+                            <exclude>main/WebConfig.class</exclude>
                         </excludes>
                     </instrumentation>
                 </configuration>
