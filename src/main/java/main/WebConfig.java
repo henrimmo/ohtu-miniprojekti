@@ -36,7 +36,7 @@ public class WebConfig {
 
         factory.setJpaVendorAdapter(vendorAdapter);
         factory.setPersistenceUnitName("production");
-        factory.setPackagesToScan("app.models");
+        factory.setPackagesToScan("main.models");
         factory.setDataSource(dataSource());
 
         factory.afterPropertiesSet();
