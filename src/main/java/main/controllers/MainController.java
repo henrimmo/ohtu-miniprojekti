@@ -87,7 +87,7 @@ public class MainController {
         return "index";
     }
     
-    @RequestMapping("/deletetestdata",method = RequestMethod.DELETE)
+    @RequestMapping(value = "/deletetestdata", method = RequestMethod.DELETE)
     @ResponseBody
     public String deleteTest(){
         /*Article a1 = new Article("test00", "Test Author","Test title","Test Journal",2000);
