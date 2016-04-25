@@ -96,7 +96,7 @@ public class MainController {
         articleRepository.save(a1);
         articleRepository.save(a2);
         articleRepository.delete(articleRepository.findOne(Long.parseLong(a2.getId())));*/
-        Article a1 = articleRepository.findOne("test00");
+        Article a1 = articleRepository.findOne(1L);
         articleRepository.delete(a1);
         
         return "OK";
