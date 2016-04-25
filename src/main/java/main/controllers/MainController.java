@@ -86,4 +86,17 @@ public class MainController {
         model.addAttribute("blList", bookletRepository.findAll());
         return "index";
     }
+    
+    @RequestMapping("/deletetestdata")
+    @ResponseBody
+    public String deleteTest(){
+        Article a1 = new Article("test00", "Test Author","Test title","Test Journal",2000);
+        Article a2 = new Article("second01","Second Author","Second title","Someother Journal",2001);
+        
+        articleRepository.save(a1);
+        articleRepository.save(a2);
+        articleRepository.delete(a2);
+        
+        return "OK";
+    }
 }
