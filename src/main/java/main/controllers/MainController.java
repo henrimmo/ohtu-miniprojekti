@@ -7,10 +7,12 @@ import main.BibTexGenerator;
 import main.models.Article;
 import main.models.Book;
 import main.models.Booklet;
+import main.models.Inbook;
 import main.models.Inproceedings;
 import main.repositories.ArticleRepository;
 import main.repositories.BookRepository;
 import main.repositories.BookletRepository;
+import main.repositories.InbookRepository;
 import main.repositories.InproceedingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +33,8 @@ public class MainController {
     private InproceedingsRepository inproceedingsRepository;
     @Autowired
     private BookletRepository bookletRepository;
+    @Autowired
+    private InbookRepository inbookRepository;
 
     @RequestMapping("/bibtex")
     @ResponseBody
@@ -51,6 +55,10 @@ public class MainController {
             generator.addEntry(bl);
         }
         
+        for(Inbook ib: inbookRepository.findAll()){
+            generator.addEntry(ib);
+        }
+        
         response.setContentType("text/bib");
         response.setHeader("Content-Disposition", "attachment; filename=\""
                 + filename + "\"");
@@ -63,6 +71,7 @@ public class MainController {
         model.addAttribute("bList", bookRepository.findAll());
         model.addAttribute("iList", inproceedingsRepository.findAll());
         model.addAttribute("blList", bookletRepository.findAll());
+        model.addAttribute("ibList", inbookRepository.findAll());
         return "index";
     }
     
