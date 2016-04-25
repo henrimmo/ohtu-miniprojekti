@@ -28,6 +28,7 @@
                     <th>Title</th>
                     <th>Journal</th>
                     <th>Year</th>
+                    <th>Delete</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -36,7 +37,7 @@
                     <td th:text="${article.title}"></td>
                     <td th:text="${article.journal}"></td>
                     <td th:text="${article.year}"></td>
-                    <p><input type="submit" value="Poista" /></p>
+                    <td><input type="submit" value="Delete" /></td>
                   </tr>
                 </tbody>
             </table>
