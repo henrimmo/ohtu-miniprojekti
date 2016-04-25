@@ -1,12 +1,7 @@
 
 package main.controllers;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
 import javax.servlet.http.HttpServletResponse;
 import main.BibTexGenerator;
 import main.models.Article;
@@ -62,6 +57,16 @@ public class MainController {
         response.getOutputStream().print(generator.generate());
     }
     
+    @RequestMapping(method = RequestMethod.GET)
+    public String list(Model model) {
+        model.addAttribute("aList", articleRepository.findAll());
+        model.addAttribute("bList", bookRepository.findAll());
+        model.addAttribute("iList", inproceedingsRepository.findAll());
+        model.addAttribute("blList", bookletRepository.findAll());
+        return "index";
+    }
+    
+    
     @RequestMapping("/addtestdata")
     @ResponseBody
     public String addTestData(){
@@ -78,26 +83,18 @@ public class MainController {
         return "OK";
     }
     
-    @RequestMapping(method = RequestMethod.GET)
-    public String list(Model model) {
-        model.addAttribute("aList", articleRepository.findAll());
-        model.addAttribute("bList", bookRepository.findAll());
-        model.addAttribute("iList", inproceedingsRepository.findAll());
-        model.addAttribute("blList", bookletRepository.findAll());
-        return "index";
-    }
-    
     @RequestMapping(value = "/deletetestdata", method = RequestMethod.GET)
     @ResponseBody
-    public String deleteTest(){
-        /*Article a1 = new Article("test00", "Test Author","Test title","Test Journal",2000);
-        Article a2 = new Article("second01","Second Author","Second title","Someother Journal",2001);
+    public String deleteTestD(){
+        Article a1 = articleRepository.findOne("test00");
+        Article a2 = articleRepository.findOne("second01");
+        Book b = bookRepository.findOne("book16");
+        Inproceedings i = inproceedingsRepository.findOne("inp16");
         
-        articleRepository.save(a1);
-        articleRepository.save(a2);
-        articleRepository.delete(articleRepository.findOne(Long.parseLong(a2.getId())));*/
-        Article a1 = articleRepository.findOne(1L);
         articleRepository.delete(a1);
+        articleRepository.delete(a2);
+        bookRepository.delete(b);
+        inproceedingsRepository.delete(i);
         
         return "OK";
     }

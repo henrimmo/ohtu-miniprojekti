@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import main.repositories.ArticleRepository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("articles")
@@ -25,24 +25,7 @@ public class ArticleController {
     */
     @Autowired
     private ArticleRepository articleRepository;
-    
-    //Simple test for database
-    @RequestMapping("/test")
-    @ResponseBody
-    public String articleRepositoryTest(){
-        if(articleRepository.findAll().isEmpty()){
-            Article a = new Article();
-            a.setTitle("Test name");
-            a.setJournal("Test journal");
-            a.setAuthor("Test Author");
-            a.setYear(2016);
-            articleRepository.save(a);
-        }
         
-        Article r = articleRepository.findOne(1L);
-        return r.toBibTex();
-    }
-    
     @RequestMapping(value="/new", method=RequestMethod.GET)
     public String greetingForm(Model model) {
         model.addAttribute("article", new Article());
@@ -55,5 +38,12 @@ public class ArticleController {
         model.addAttribute("object", article);
         return "redirect:/";
     }
-
+    
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public String deleteArticle(@PathVariable String id){
+        Article a = articleRepository.findOne(id);
+        articleRepository.delete(a);
+        
+        return "redirect:/";
+    }
 }

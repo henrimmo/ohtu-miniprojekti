@@ -37,7 +37,7 @@
                     <td th:text="${article.title}"></td>
                     <td th:text="${article.journal}"></td>
                     <td th:text="${article.year}"></td>
-                    <td><input type="submit" value="Delete" /></td>
+                    <td><a th:href="@{/articles/delete/{id}(id=${article.id})}">Delete</a></td>
                   </tr>
                 </tbody>
             </table>
@@ -67,7 +67,7 @@
                     <td th:text="${book.title}"></td>
                     <td th:text="${book.publisher}"></td>
                     <td th:text="${book.year}"></td>
-                    <td><input type="submit" value="Delete" /></td>
+                    <td><td><a th:href="@{/books/delete/{id}(id=${book.id})}">Delete</a></td></td>
                   </tr>
                 </tbody>
             </table>
@@ -97,7 +97,7 @@
                     <td th:text="${inproceedings.title}"></td>
                     <td th:text="${inproceedings.booktitle}"></td>
                     <td th:text="${inproceedings.year}"></td>
-                    <td><input type="submit" value="Delete" /></td>
+                    <td><td><a th:href="@{/inproceedings/delete/{id}(id=${inproceedings.id})}">Delete</a></td></td>
                   </tr>
                 </tbody>
             </table>
@@ -121,7 +121,7 @@
                 <tbody>
                   <tr th:each="booklet : ${blList}">
                     <td th:text="${booklet.title}"></td>
-                    <td><input type="submit" value="Delete" /></td>
+                    <td><td><a th:href="@{/booklets/delete/{id}(id=${booklet.id})}">Delete</a></td></td>
                   </tr>
                 </tbody>
             </table>

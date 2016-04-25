@@ -1,11 +1,12 @@
 package main.models;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
-public class Article implements BibTexEntry {
+public class Article implements BibTexEntry, Serializable {
     private String author;
     private String title;
     private String journal;
