@@ -87,15 +87,17 @@ public class MainController {
         return "index";
     }
     
-    @RequestMapping(method = RequestMethod.DELETE)
+    @RequestMapping("/deletetestdata",method = RequestMethod.DELETE)
     @ResponseBody
     public String deleteTest(){
-        Article a1 = new Article("test00", "Test Author","Test title","Test Journal",2000);
+        /*Article a1 = new Article("test00", "Test Author","Test title","Test Journal",2000);
         Article a2 = new Article("second01","Second Author","Second title","Someother Journal",2001);
         
         articleRepository.save(a1);
         articleRepository.save(a2);
-        articleRepository.delete(articleRepository.findOne(Long.parseLong(a2.getId())));
+        articleRepository.delete(articleRepository.findOne(Long.parseLong(a2.getId())));*/
+        Article a1 = articleRepository.findOne("test00");
+        articleRepository.delete(a1);
         
         return "OK";
     }
