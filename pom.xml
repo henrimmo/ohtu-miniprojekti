@@ -71,6 +71,8 @@
             <version>9.1-901.jdbc4</version>
         </dependency>
         
+        <!-- Tästä asti easyb säätöä -->
+        
         <dependency>
             <groupId>org.easyb</groupId>
             <artifactId>easyb-core</artifactId>
@@ -88,6 +90,11 @@
             <artifactId>groovy-all</artifactId>
             <version>2.3.6</version>
         </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
++           <artifactId>selenium-htmlunit-driver</artifactId>
+ +          <version>2.52.0</version>
+        </dependency> 
     </dependencies>
 
     <build>
