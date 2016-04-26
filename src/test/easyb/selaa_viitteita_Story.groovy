@@ -1,28 +1,49 @@
-description 'Käyttäjä pystyy selaamaan talletettuja viitteitä'
+description 'Kï¿½yttï¿½jï¿½ pystyy selaamaan talletettuja viitteitï¿½'
 
-scenario "talletetut viitteet näytetään listana listaus-välilehdellä", {
-	given 'käyttäjä on etusivulla', {
-	}
-	when 'listaus-välilehti valitaan', {
-	}
-	then 'tietokannan sisältö näkyy listana', {
-	}
+scenario "talletetut viitteet nï¿½ytetï¿½ï¿½n listana listaus-vï¿½lilehdellï¿½", {
+    given 'viite on lisÃ¤tty tietokantaan', {
+        element = driver.findElement(By.linkText("artikkeli"));
+        element.click();
+        element = driver.findElement(By.name("author"));
+        element.sendKeys("Sini");
+        element = driver.findElement(By.name("title"));
+        element.sendKeys("Sinistï¿½");
+        element = driver.findElement(By.name("journal"));
+        element.sendKeys("Vï¿½rit");
+        element = driver.findElement(By.name("year"));
+        element.sendKeys("2010");
+        element = driver.findElement(By.name("volume"));
+        element.sendKeys("3");
+        element = driver.findElement(By.name("lisaa"));
+        element.submit();
+    }
+    when 'kÃ¤yttÃ¤jÃ¤ on etusivulla', {
+        driver = new HtmlUnitDriver();
+        driver.get("http://localhost:8080");
+    }
+    then 'viite nÃ¤kyy etusivulla', {
+        driver.getPageSource().contains("Sini").shouldBe true
+    }
+}
+/*
+scenario "talletetut viitteet nï¿½ytetï¿½ï¿½n lisï¿½ysjï¿½sjestyksessï¿½", {
+    given 'kï¿½yttï¿½jï¿½ on etusivulla', {
+        driver = new HtmlUnitDriver();
+        driver.get("http://localhost:8080");
+    }
+    when 'listaus-vï¿½lilehti valitaan', {
+    }
+    then 'tietokannan sisï¿½ltï¿½ nï¿½kyy lisï¿½ysjï¿½rjestyksessï¿½', {
+    }
 }
 
-scenario "talletetut viitteet näytetään lisäysjäsjestyksessä", {
-	given 'käyttäjä on etusivulla', {
-	}
-	when 'listaus-välilehti valitaan', {
-	}
-	then 'tietokannan sisältö näkyy lisäysjärjestyksessä', {
-	}
-}
-
-scenario "viitteen tiedot on pilkuilla erotettuja listaus-välilehdellä", {
-	given 'käyttäjä on etusivulla', {
-	}
-	when 'listaus-välilehti valitaan', {
-	}
-	then 'listassa jokaisen viitteen tiedot on pilkuilla erotettuja', {
-	}
-}
+scenario "viitteen tiedot on pilkuilla erotettuja listaus-vï¿½lilehdellï¿½", {
+    given 'kï¿½yttï¿½jï¿½ on etusivulla', {
+        driver = new HtmlUnitDriver();
+        driver.get("http://localhost:8080");
+    }
+    when 'listaus-vï¿½lilehti valitaan', {
+    }
+    then 'listassa jokaisen viitteen tiedot on pilkuilla erotettuja', {
+    }
+}*/
