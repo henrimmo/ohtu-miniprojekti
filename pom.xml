@@ -74,7 +74,7 @@
         <dependency>
             <groupId>org.easyb</groupId>
             <artifactId>easyb-core</artifactId>
-            <version>${easyb.version}</version>
+            <version>1.6</version>
             <scope>test</scope>        
         </dependency>
         <dependency>
