@@ -12,9 +12,9 @@ scenario "kï¿½yttï¿½jï¿½ pystyy tallettamaan book:n", {
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
-        element.sendKeys("Sinistï¿½");
+        element.sendKeys("Sinista");
         element = driver.findElement(By.name("publisher"));
-        element.sendKeys("Vï¿½rit");
+        element.sendKeys("Varit");
         element = driver.findElement(By.name("year"));
         element.sendKeys("2010");
         element = driver.findElement(By.name("lisaa"));
@@ -34,8 +34,16 @@ scenario "kï¿½yttï¿½jï¿½ ei tï¿½ytï¿½ yhtï¿½ kenttï¿½ï¿½ eikï¿½ book:a lisï¿½tï¿
         element.click();
     }
     when 'yksi kenttï¿½ jï¿½ï¿½ tyhjï¿½ksi', {
+        element = driver.findElement(By.name("author"));
+        element.sendKeys("Sini");
+        element = driver.findElement(By.name("title"));
+        element.sendKeys("Sinista");
+        element = driver.findElement(By.name("publisher"));
+        element.sendKeys("Varit");
+        element = driver.findElement(By.name("lisaa"));
+        element.submit();
     }
-    then 'book:a ei lisï¿½tty tietokantaan', {
+    then 'Kirjaaa ei lisï¿½tty tietokantaan', {
     }
 }
 
@@ -47,12 +55,22 @@ scenario "kentï¿½ssï¿½ ï¿½ï¿½kkï¿½siï¿½ ja book lisï¿½tï¿½ï¿½n", {
         element.click();
     }
     when 'artikkelin nimessï¿½ ï¿½ï¿½kkï¿½siï¿½', {
+        element = driver.findElement(By.name("author"));
+        element.sendKeys("Sini");
+        element = driver.findElement(By.name("title"));
+        element.sendKeys("Sinistï¿½");
+        element = driver.findElement(By.name("publisher"));
+        element.sendKeys("Vï¿½rit");
+        element = driver.findElement(By.name("year"));
+        element.sendKeys("2010");
+        element = driver.findElement(By.name("lisaa"));
+        element.submit();
     }
-    then 'artikkeli on lisï¿½tty tietokantaan', {
+    then 'Kirja on lisï¿½tty tietokantaan', {
     }
 }
 
-scenario "year-kentï¿½ssï¿½ on muuta kuin numeroita eikï¿½ artikkelia lisï¿½tï¿½", {
+scenario "year-kentï¿½ssï¿½ on muuta kuin numeroita eikï¿½ book:a lisï¿½tï¿½", {
     given 'add book -kï¿½sky valittu', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8080");
@@ -60,12 +78,22 @@ scenario "year-kentï¿½ssï¿½ on muuta kuin numeroita eikï¿½ artikkelia lisï¿½tï¿½
         element.click();
     }
     when 'year-kentï¿½ssï¿½ kirjain', {
+        element = driver.findElement(By.name("author"));
+        element.sendKeys("Sini");
+        element = driver.findElement(By.name("title"));
+        element.sendKeys("Sinistï¿½");
+        element = driver.findElement(By.name("publisher"));
+        element.sendKeys("Vï¿½rit");
+        element = driver.findElement(By.name("year"));
+        element.sendKeys("kolme");
+        element = driver.findElement(By.name("lisaa"));
+        element.submit();
     }
-    then 'artikkelia ei lisï¿½tty tietokantaan', {
+    then 'Kirjaa ei lisï¿½tty tietokantaan', {
     }
 }
 
-scenario "year-kentï¿½n syï¿½tteen pituus ei ole neljï¿½ eikï¿½ artikkelia lisï¿½tï¿½", {
+scenario "year-kentï¿½n syï¿½tteen pituus ei ole neljï¿½ eikï¿½ book:a lisï¿½tï¿½", {
     given 'add book -kï¿½sky valittu', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8080");
@@ -73,7 +101,17 @@ scenario "year-kentï¿½n syï¿½tteen pituus ei ole neljï¿½ eikï¿½ artikkelia lisï¿
         element.click();
     }
     when 'year-kentï¿½ssï¿½ kolme numeroa', {
+        element = driver.findElement(By.name("author"));
+        element.sendKeys("Sini");
+        element = driver.findElement(By.name("title"));
+        element.sendKeys("Sinistï¿½");
+        element = driver.findElement(By.name("publisher"));
+        element.sendKeys("Vï¿½rit");
+        element = driver.findElement(By.name("year"));
+        element.sendKeys("201");
+        element = driver.findElement(By.name("lisaa"));
+        element.submit();
     }
-    then 'artikkelia ei lisï¿½tty tietokantaan', {
+    then 'Kirjaa ei lisï¿½tty tietokantaan', {
     }
 }
