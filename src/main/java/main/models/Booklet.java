@@ -39,9 +39,9 @@ public class Booklet implements BibTexEntry, Serializable{
 
     @Override
     public String toBibTex() {
-        return "@BOOKLET{" + id
-                + ", title={" + title + "}"
-                + "}";
+        return "@BOOKLET{" + id + ",\n"
+                + "    title = {" + title + "},\n"
+                + "}\n";
     }
 
     public String getId() {

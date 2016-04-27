@@ -94,12 +94,12 @@ public class Inbook implements BibTexEntry, Serializable{
 
     @Override
     public String toBibTex() {
-        return "@INBOOK{" + this.id
-                + ", author={" + this.author + "}"
-                + ", title={" + this.title + "}"
-                + ", chapter={" + this.chapter + "}"
-                + ", publisher={" + this.publisher + "}"
-                + ", year={" + this.year + "}"
-                + ",}";
+        return "@INBOOK{" + this.id + ",\n"
+                + "    author = {" + this.author + "},\n"
+                + "    title = {" + this.title + "},\n"
+                + "    chapter = {" + this.chapter + "},\n"
+                + "    publisher = {" + this.publisher + "},\n"
+                + "    year = {" + this.year + "},\n"
+                + "}\n";
     }
 }

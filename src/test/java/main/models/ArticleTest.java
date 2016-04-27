@@ -121,8 +121,12 @@ public class ArticleTest {
     
     @Test
     public void testToBibText() {
-        assertEquals("@ARTICLE{puu08, author={Mr. Puu}, " +
-                "title={Kuuset}, journal={Luonto}, year={2008},}",
+        assertEquals("@ARTICLE{puu08,\n"
+                + "    author = {Mr. Puu},\n" 
+                + "    title = {Kuuset},\n"
+                + "    journal = {Luonto},\n"
+                + "    year = {2008},\n"
+                + "}\n",
                 article.toBibTex());
     }
     

@@ -69,12 +69,12 @@ public class Inproceedings implements BibTexEntry, Serializable{
     
     @Override
     public String toBibTex() {
-        return "@INPROCEEDINGS{" + id
-                + ", author={" + author + "}"
-                + ", title={" + title + "}"
-                + ", booktitle={" + booktitle + "}"
-                + ", year={" + year + "}"
-                + ",}";
+        return "@INPROCEEDINGS{" + id + ",\n"
+                + "    author = {" + author + "},\n"
+                + "    title = {" + title + "},\n"
+                + "    booktitle = {" + booktitle + "},\n"
+                + "    year = {" + year + "},\n"
+                + "}\n";
     }
 
     public String getId() {

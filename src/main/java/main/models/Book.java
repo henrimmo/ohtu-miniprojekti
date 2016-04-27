@@ -67,12 +67,12 @@ public class Book implements BibTexEntry, Serializable{
 
     @Override
     public String toBibTex() {
-        return "@BOOK{" + id
-                + ", author={" + author + "}"
-                + ", title={" + title + "}"
-                + ", publisher={" + publisher + "}"
-                + ", year={" + year + "}"
-                + ",}";
+        return "@BOOK{" + id +",\n"
+                + "    author = {" + author + "},\n"
+                + "    title = {" + title + "},\n"
+                + "    publisher = {" + publisher + "},\n"
+                + "    year = {" + year + "},\n"
+                + "}\n";
     }
 
     public String getId() {

@@ -68,12 +68,12 @@ public class Article implements BibTexEntry, Serializable{
     
     @Override
     public String toBibTex() {
-        return "@ARTICLE{" + id
-                + ", author={" + author + "}"
-                + ", title={" + title + "}"
-                + ", journal={" + journal + "}"
-                + ", year={" + year + "}"
-                + ",}";
+        return "@ARTICLE{" + id + ",\n"
+                + "    author = {" + author + "},\n"
+                + "    title = {" + title + "},\n"
+                + "    journal = {" + journal + "},\n"
+                + "    year = {" + year + "},\n"
+                + "}\n";
     }
 
     public String getId() {

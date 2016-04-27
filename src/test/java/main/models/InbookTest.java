@@ -31,8 +31,13 @@ public class InbookTest {
     
     @Test
     public void testToBibText() {
-        assertEquals("@INBOOK{jj15, author={Jouko ja Jutta}, " +
-                "title={Kiertoreitti}, chapter={2}, publisher={WSOY}, year={2015},}",
+        assertEquals("@INBOOK{jj15,\n"
+                + "    author = {Jouko ja Jutta},\n" 
+                + "    title = {Kiertoreitti},\n"
+                + "    chapter = {2},\n"
+                + "    publisher = {WSOY},\n"
+                + "    year = {2015},\n"
+                + "}\n",
                 inbook.toBibTex());
     }
     

@@ -48,8 +48,9 @@ public class BookletTest {
     
     @Test
     public void testToBibText() {
-        assertEquals("@BOOKLET{kk, " +
-                "title={Kissakirja2}}",
+        assertEquals("@BOOKLET{kk,\n" 
+                + "    title = {Kissakirja2},\n"
+                + "}\n",
                 booklet.toBibTex());
     }
     
