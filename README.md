@@ -8,6 +8,8 @@ Sprintti 2: [backlog](https://trello.com/b/CCsGRm3z/sprintti-2)
 
 Sprintti 3: [backlog](https://trello.com/b/mjpHLMcY/sprintti-3), [burndown](https://docs.google.com/spreadsheets/d/1OvkrYaAas34ywfmexkDi-9YgWbUSGTyZY3cJDD5krYc/edit?usp=sharing)
 
+Sprintti 4: [backlog](https://trello.com/b/bcwX8JpN/sprintti-4), [burndown](https://docs.google.com/spreadsheets/d/12I3w2IEnOB3GJpfSkrhEsCZ36BamHMZy2WLtiCx_Kjk/edit?usp=sharing)
+
 Linkki sovellukseen:
 https://murmuring-meadow-58244.herokuapp.com/
 
