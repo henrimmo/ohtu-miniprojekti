@@ -1,14 +1,19 @@
-description 'K�ytt�j� pystyy tallettamaan inproceedings'
+import main.*
 
-scenario "k�ytt�j� pystyy tallettamaan inproceedings", {
-    given 'add inproceedings -k�sky valittu', {
+import org.openqa.selenium.*
+import org.openqa.selenium.htmlunit.HtmlUnitDriver
+
+description 'Kayttaja pystyy tallettamaan inproceedings'
+
+scenario "kayttaja pystyy tallettamaan inproceedings", {
+    given 'add inproceedings -kasky valittu', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8080");
         element = driver.findElement(By.linkText("inproceedings"));
         element.click();
     }
 
-    when 'kent�t t�ytetty inproceedingsin tiedoilla', {
+    when 'kentat taytetty inproceedingsin tiedoilla', {
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
@@ -21,19 +26,19 @@ scenario "k�ytt�j� pystyy tallettamaan inproceedings", {
         element.submit();
     }
 
-    then 'inproceedings on lis�tty tietokantaan', {
-        driver.getPageSource().contains("Inproceedings lis�tty").shouldBe true
+    then 'inproceedings on lisatty tietokantaan', {
+        driver.getPageSource().contains("Inproceedings lisatty").shouldBe true
     }
 }
-//joka kent�lle oma "tyhj� kentt�"-scenario:
-scenario "k�ytt�j� ei t�yt� yht� kentt�� eik� inproceedinsia lis�t�", {
-    given 'add inproceedins -k�sky valittu', {
+//joka kentalle oma "tyhja kentta"-scenario:
+scenario "kayttaja ei tayta yhta kenttaa eika inproceedinsia lisata", {
+    given 'add inproceedins -kasky valittu', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8080");
         element = driver.findElement(By.linkText("inproceedins"));
         element.click();
     }
-    when 'yksi kentt� j�� tyhj�ksi', {
+    when 'yksi kentta jaa tyhjaksi', {
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
@@ -43,79 +48,79 @@ scenario "k�ytt�j� ei t�yt� yht� kentt�� eik� inproceedinsia l
         element = driver.findElement(By.name("lisaa"));
         element.submit();
     }
-    then 'inproceedinsia ei lis�tty tietokantaan', {
+    then 'inproceedinsia ei lisatty tietokantaan', {
         driver.getPageSource().contains("inproceedingsia ei lisätty").shouldBe true
     }
 }
 
-scenario "kent�ss� ��kk�si� ja inproceedings lis�t��n", {
-    given 'add inproceedings -k�sky valittu', {
+scenario "kentassa aakkasia ja inproceedings lisataan", {
+    given 'add inproceedings -kasky valittu', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8080");
         element = driver.findElement(By.linkText("inproceedings"));
         element.click();
     }
-    when 'inproceedingsin nimess� ��kk�si�', {
+    when 'inproceedingsin nimessa aakkasia', {
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
-        element.sendKeys("Sinist�");
+        element.sendKeys("Sinista");
         element = driver.findElement(By.name("journal"));
-        element.sendKeys("V�rit");
+        element.sendKeys("Varit");
         element = driver.findElement(By.name("year"));
         element.sendKeys("2010");
         element = driver.findElement(By.name("lisaa"));
         element.submit();
     }
-    then 'inproceeding on lis�tty tietokantaan', {
-        driver.getPageSource().contains("Artikkeli lis�tty").shouldBe true
+    then 'inproceeding on lisatty tietokantaan', {
+        driver.getPageSource().contains("Artikkeli lisatty").shouldBe true
     }
 }
 
-scenario "year-kent�ss� on muuta kuin numeroita eik� inproceedingsia lis�t�", {
-    given 'add inproceedings -k�sky valittu', {
+scenario "year-kentassa on muuta kuin numeroita eika inproceedingsia lisata", {
+    given 'add inproceedings -kasky valittu', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8080");
         element = driver.findElement(By.linkText("inproceedings"));
         element.click();
     }
-    when 'year-kent�ss� kirjain', {
+    when 'year-kentassa kirjain', {
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
-        element.sendKeys("Sinist�");
+        element.sendKeys("Sinista");
         element = driver.findElement(By.name("journal"));
-        element.sendKeys("V�rit");
+        element.sendKeys("Varit");
         element = driver.findElement(By.name("year"));
         element.sendKeys("kolme");
         element = driver.findElement(By.name("lisaa"));
         element.submit();
     }
-    then 'inproceedingsia ei lis�tty tietokantaan', {
-        driver.getPageSource().contains("inproceedingsia ei lis�tty").shouldBe true
+    then 'inproceedingsia ei lisatty tietokantaan', {
+        driver.getPageSource().contains("inproceedingsia ei lisatty").shouldBe true
     }
 }
 
-scenario "year-kent�n sy�tteen pituus ei ole nelj� eik� inproceedingsia lis�t�", {
-    given 'add inproceedings -k�sky valittu', {
+scenario "year-kentan syatteen pituus ei ole nelja eika inproceedingsia lisata", {
+    given 'add inproceedings -kasky valittu', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8080");
         element = driver.findElement(By.linkText("inproceedings"));
         element.click();
     }
-    when 'year-kent�ss� kolme numeroa', {
+    when 'year-kentassa kolme numeroa', {
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
-        element.sendKeys("Sinist�");
+        element.sendKeys("Sinista");
         element = driver.findElement(By.name("journal"));
-        element.sendKeys("V�rit");
+        element.sendKeys("Varit");
         element = driver.findElement(By.name("year"));
         element.sendKeys("201");
         element = driver.findElement(By.name("lisaa"));
         element.submit();
     }
-    then 'inproceedingsia ei lis�tty tietokantaan', {
-        driver.getPageSource().contains("inproceedingsia ei lis�tty").shouldBe true
+    then 'inproceedingsia ei lisatty tietokantaan', {
+        driver.getPageSource().contains("inproceedingsia ei lisatty").shouldBe true
     }
 }

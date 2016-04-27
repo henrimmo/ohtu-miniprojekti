@@ -1,27 +1,25 @@
 import main.*
-import main.controller.*
-import main.models.*
-import main.repositories.*
+
 import org.openqa.selenium.*
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver
 
-description 'Kï¿½yttï¿½jï¿½ pystyy tallettamaan artikkelin'
+description 'Kayttaja pystyy tallettamaan artikkelin'
 
-scenario "kï¿½yttï¿½jï¿½ pystyy tallettamaan artikkelin", {
-    given 'lisï¿½ï¿½ artikkeli -kï¿½sky valittu', {
+scenario "kayttaja pystyy tallettamaan artikkelin", {
+    given 'lisaa artikkeli -kasky valittu', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8080");
         element = driver.findElement(By.linkText("artikkeli"));
         element.click();
     }
 
-    when 'kentï¿½t tï¿½ytetty artikkelin tiedoilla', {
+    when 'kentat taytetty artikkelin tiedoilla', {
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
-        element.sendKeys("Sinistï¿½");
+        element.sendKeys("Sinista");
         element = driver.findElement(By.name("journal"));
-        element.sendKeys("Vï¿½rit");
+        element.sendKeys("Varit");
         element = driver.findElement(By.name("year"));
         element.sendKeys("2010");
         element = driver.findElement(By.name("volume"));
@@ -30,49 +28,49 @@ scenario "kï¿½yttï¿½jï¿½ pystyy tallettamaan artikkelin", {
         element.submit();
     }
 
-    then 'artikkeli on lisï¿½tty tietokantaan', {
-        driver.getPageSource().contains("Artikkeli lisï¿½tty").shouldBe true
+    then 'artikkeli on lisatty tietokantaan', {
+        driver.getPageSource().contains("Artikkeli lisatty").shouldBe true
     }
 }
-//joka kentï¿½lle oma "tyhjï¿½ kenttï¿½"-scenario:
-scenario "kï¿½yttï¿½jï¿½ ei tï¿½ytï¿½ yhtï¿½ kenttï¿½ï¿½ eikï¿½ artikkelia lisï¿½tï¿½", {
-    given 'lisï¿½ï¿½ artikkeli -kï¿½sky valittu', {
+//joka kentalle oma "tyhja kentta"-scenario:
+scenario "kayttaja ei tayta yhta kenttaa eika artikkelia lisata", {
+    given 'lisaa artikkeli -kasky valittu', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8080");
         element = driver.findElement(By.linkText("artikkeli"));
         element.click();
     }
-    when 'yksi kenttï¿½ jï¿½ï¿½ tyhjï¿½ksi', {
+    when 'yksi kentta jaa tyhjaksi', {
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
-        element.sendKeys("Sinistï¿½");
+        element.sendKeys("Sinista");
         element = driver.findElement(By.name("journal"));
-        element.sendKeys("Vï¿½rit");
+        element.sendKeys("Varit");
         element = driver.findElement(By.name("year"));
         element.sendKeys("2010");
         element = driver.findElement(By.name("lisaa"));
         element.submit();
     }
-    then 'artikkelia ei lisï¿½tty tietokantaan', {
+    then 'artikkelia ei lisatty tietokantaan', {
         driver.getPageSource().contains("Artikkelia ei lisÃ¤tty").shouldBe true
     }
 }
 
-scenario "kentï¿½ssï¿½ ï¿½ï¿½kkï¿½siï¿½ ja artikkeli lisï¿½tï¿½ï¿½n", {
-    given 'lisï¿½ï¿½ artikkeli -kï¿½sky valittu', {
+scenario "kentassa aakkasia ja artikkeli lisataan", {
+    given 'lisaa artikkeli -kasky valittu', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8080");
         element = driver.findElement(By.linkText("artikkeli"));
         element.click();
     }
-    when 'artikkelin nimessï¿½ ï¿½ï¿½kkï¿½siï¿½', {
+    when 'artikkelin nimessa aakkasia', {
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
-        element.sendKeys("Sinistï¿½");
+        element.sendKeys("Sinista");
         element = driver.findElement(By.name("journal"));
-        element.sendKeys("Vï¿½rit");
+        element.sendKeys("Varit");
         element = driver.findElement(By.name("year"));
         element.sendKeys("2010");
         element = driver.findElement(By.name("volume"));
@@ -80,25 +78,25 @@ scenario "kentï¿½ssï¿½ ï¿½ï¿½kkï¿½siï¿½ ja artikkeli lisï¿½tï¿½ï¿½n", {
         element = driver.findElement(By.name("lisaa"));
         element.submit();
     }
-    then 'artikkeli on lisï¿½tty tietokantaan', {
-        driver.getPageSource().contains("Artikkeli lisï¿½tty").shouldBe true
+    then 'artikkeli on lisatty tietokantaan', {
+        driver.getPageSource().contains("Artikkeli lisatty").shouldBe true
     }
 }
 
-scenario "year-kentï¿½ssï¿½ on muuta kuin numeroita eikï¿½ artikkelia lisï¿½tï¿½", {
-    given 'lisï¿½ï¿½ artikkeli -kï¿½sky valittu', {
+scenario "year-kentassa on muuta kuin numeroita eika artikkelia lisata", {
+    given 'lisaa artikkeli -kasky valittu', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8080");
         element = driver.findElement(By.linkText("artikkeli"));
         element.click();
     }
-    when 'year-kentï¿½ssï¿½ kirjain', {
+    when 'year-kentassa kirjain', {
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
-        element.sendKeys("Sinistï¿½");
+        element.sendKeys("Sinista");
         element = driver.findElement(By.name("journal"));
-        element.sendKeys("Vï¿½rit");
+        element.sendKeys("Varit");
         element = driver.findElement(By.name("year"));
         element.sendKeys("kolme");
         element = driver.findElement(By.name("volume"));
@@ -106,25 +104,25 @@ scenario "year-kentï¿½ssï¿½ on muuta kuin numeroita eikï¿½ artikkelia lisï¿½tï¿½
         element = driver.findElement(By.name("lisaa"));
         element.submit();
     }
-    then 'artikkelia ei lisï¿½tty tietokantaan', {
-        driver.getPageSource().contains("Artikkelia ei lisï¿½tty").shouldBe true
+    then 'artikkelia ei lisatty tietokantaan', {
+        driver.getPageSource().contains("Artikkelia ei lisatty").shouldBe true
     }
 }
 
-scenario "year-kentï¿½n syï¿½tteen pituus ei ole neljï¿½ eikï¿½ artikkelia lisï¿½tï¿½", {
-    given 'lisï¿½ï¿½ artikkeli -kï¿½sky valittu', {
+scenario "year-kentan syatteen pituus ei ole nelja eika artikkelia lisata", {
+    given 'lisaa artikkeli -kasky valittu', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8080");
         element = driver.findElement(By.linkText("artikkeli"));
         element.click();
     }
-    when 'year-kentï¿½ssï¿½ kolme numeroa', {
+    when 'year-kentassa kolme numeroa', {
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
-        element.sendKeys("Sinistï¿½");
+        element.sendKeys("Sinista");
         element = driver.findElement(By.name("journal"));
-        element.sendKeys("Vï¿½rit");
+        element.sendKeys("Varit");
         element = driver.findElement(By.name("year"));
         element.sendKeys("201");
         element = driver.findElement(By.name("volume"));
@@ -132,7 +130,7 @@ scenario "year-kentï¿½n syï¿½tteen pituus ei ole neljï¿½ eikï¿½ artikkelia lisï¿
         element = driver.findElement(By.name("lisaa"));
         element.submit();
     }
-    then 'artikkelia ei lisï¿½tty tietokantaan', {
-        driver.getPageSource().contains("Artikkelia ei lisï¿½tty").shouldBe true
+    then 'artikkelia ei lisatty tietokantaan', {
+        driver.getPageSource().contains("Artikkelia ei lisatty").shouldBe true
     }
 }

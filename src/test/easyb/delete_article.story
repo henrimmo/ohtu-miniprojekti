@@ -1,6 +1,11 @@
-description 'K�ytt�j� pystyy poistamaan artikkelin'
+import main.*
 
-scenario "k�ytt�j� pystyy poistamaan artikkelin", {
+import org.openqa.selenium.*
+import org.openqa.selenium.htmlunit.HtmlUnitDriver
+
+description 'Kayttaja pystyy poistamaan artikkelin'
+
+scenario "kayttaja pystyy poistamaan artikkelin", {
     given 'käyttäjä on etusivulla', {
        driver = new HtmlUnitDriver();
        driver.get("http://localhost:8080");

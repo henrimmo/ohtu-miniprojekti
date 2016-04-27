@@ -1,14 +1,19 @@
-description 'Kï¿½yttï¿½jï¿½ pystyy tallettamaan book:n'
+import main.*
 
-scenario "kï¿½yttï¿½jï¿½ pystyy tallettamaan book:n", {
-    given 'add book -kï¿½sky valittu', {
+import org.openqa.selenium.*
+import org.openqa.selenium.htmlunit.HtmlUnitDriver
+
+description 'Kayttaja pystyy tallettamaan book:n'
+
+scenario "kayttaja pystyy tallettamaan book:n", {
+    given 'add book -kasky valittu', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8080");
         element = driver.findElement(By.linkText("book"));
         element.click();
     }
 
-    when 'kentï¿½t tï¿½ytetty book:n tiedoilla', {
+    when 'kentat taytetty book:n tiedoilla', {
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
@@ -21,19 +26,19 @@ scenario "kï¿½yttï¿½jï¿½ pystyy tallettamaan book:n", {
         element.submit();
     }
 
-    then 'book on lisï¿½tty tietokantaan', {
-        driver.getPageSource().contains("Kirja lisï¿½tty").shouldBe true
+    then 'book on lisatty tietokantaan', {
+        driver.getPageSource().contains("Kirja lisatty").shouldBe true
     }
 }
-//joka kentï¿½lle oma "tyhjï¿½ kenttï¿½"-scenario:
-scenario "kï¿½yttï¿½jï¿½ ei tï¿½ytï¿½ yhtï¿½ kenttï¿½ï¿½ eikï¿½ book:a lisï¿½tï¿½", {
-    given 'add book -kï¿½sky valittu', {
+//joka kentalle oma "tyhja kentta"-scenario:
+scenario "kayttaja ei tayta yhta kenttaa eika book:a lisata", {
+    given 'add book -kasky valittu', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8080");
         element = driver.findElement(By.linkText("book"));
         element.click();
     }
-    when 'yksi kenttï¿½ jï¿½ï¿½ tyhjï¿½ksi', {
+    when 'yksi kentta jaa tyhjaksi', {
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
@@ -43,75 +48,75 @@ scenario "kï¿½yttï¿½jï¿½ ei tï¿½ytï¿½ yhtï¿½ kenttï¿½ï¿½ eikï¿½ book:a lisï¿½tï¿
         element = driver.findElement(By.name("lisaa"));
         element.submit();
     }
-    then 'Kirjaaa ei lisï¿½tty tietokantaan', {
+    then 'Kirjaaa ei lisatty tietokantaan', {
     }
 }
 
-scenario "kentï¿½ssï¿½ ï¿½ï¿½kkï¿½siï¿½ ja book lisï¿½tï¿½ï¿½n", {
-    given 'add book -kï¿½sky valittu', {
+scenario "kentassa aakkasia ja book lisataan", {
+    given 'add book -kasky valittu', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8080");
         element = driver.findElement(By.linkText("book"));
         element.click();
     }
-    when 'artikkelin nimessï¿½ ï¿½ï¿½kkï¿½siï¿½', {
+    when 'artikkelin nimessa aakkasia', {
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
-        element.sendKeys("Sinistï¿½");
+        element.sendKeys("Sinista");
         element = driver.findElement(By.name("publisher"));
-        element.sendKeys("Vï¿½rit");
+        element.sendKeys("Varit");
         element = driver.findElement(By.name("year"));
         element.sendKeys("2010");
         element = driver.findElement(By.name("lisaa"));
         element.submit();
     }
-    then 'Kirja on lisï¿½tty tietokantaan', {
+    then 'Kirja on lisatty tietokantaan', {
     }
 }
 
-scenario "year-kentï¿½ssï¿½ on muuta kuin numeroita eikï¿½ book:a lisï¿½tï¿½", {
-    given 'add book -kï¿½sky valittu', {
+scenario "year-kentassa on muuta kuin numeroita eika book:a lisata", {
+    given 'add book -kasky valittu', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8080");
         element = driver.findElement(By.linkText("book"));
         element.click();
     }
-    when 'year-kentï¿½ssï¿½ kirjain', {
+    when 'year-kentassa kirjain', {
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
-        element.sendKeys("Sinistï¿½");
+        element.sendKeys("Sinista");
         element = driver.findElement(By.name("publisher"));
-        element.sendKeys("Vï¿½rit");
+        element.sendKeys("Varit");
         element = driver.findElement(By.name("year"));
         element.sendKeys("kolme");
         element = driver.findElement(By.name("lisaa"));
         element.submit();
     }
-    then 'Kirjaa ei lisï¿½tty tietokantaan', {
+    then 'Kirjaa ei lisatty tietokantaan', {
     }
 }
 
-scenario "year-kentï¿½n syï¿½tteen pituus ei ole neljï¿½ eikï¿½ book:a lisï¿½tï¿½", {
-    given 'add book -kï¿½sky valittu', {
+scenario "year-kentan syatteen pituus ei ole nelja eika book:a lisata", {
+    given 'add book -kasky valittu', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8080");
         element = driver.findElement(By.linkText("book"));
         element.click();
     }
-    when 'year-kentï¿½ssï¿½ kolme numeroa', {
+    when 'year-kentassa kolme numeroa', {
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
-        element.sendKeys("Sinistï¿½");
+        element.sendKeys("Sinista");
         element = driver.findElement(By.name("publisher"));
-        element.sendKeys("Vï¿½rit");
+        element.sendKeys("Varit");
         element = driver.findElement(By.name("year"));
         element.sendKeys("201");
         element = driver.findElement(By.name("lisaa"));
         element.submit();
     }
-    then 'Kirjaa ei lisï¿½tty tietokantaan', {
+    then 'Kirjaa ei lisatty tietokantaan', {
     }
 }

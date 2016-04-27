@@ -1,15 +1,20 @@
-description 'K�ytt�j� pystyy selaamaan talletettuja viitteit�'
+import main.*
 
-scenario "talletetut viitteet n�ytet��n listana listaus-v�lilehdell�", {
+import org.openqa.selenium.*
+import org.openqa.selenium.htmlunit.HtmlUnitDriver
+
+description 'Kayttaja pystyy selaamaan talletettuja viitteita'
+
+scenario "talletetut viitteet naytetaan listana listaus-valilehdella", {
     given 'viite on lisätty tietokantaan', {
         element = driver.findElement(By.linkText("artikkeli"));
         element.click();
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
-        element.sendKeys("Sinist�");
+        element.sendKeys("Sinista");
         element = driver.findElement(By.name("journal"));
-        element.sendKeys("V�rit");
+        element.sendKeys("Varit");
         element = driver.findElement(By.name("year"));
         element.sendKeys("2010");
         element = driver.findElement(By.name("volume"));
@@ -26,23 +31,23 @@ scenario "talletetut viitteet n�ytet��n listana listaus-v�lilehdell�",
     }
 }
 /*
-scenario "talletetut viitteet n�ytet��n lis�ysj�sjestyksess�", {
-    given 'k�ytt�j� on etusivulla', {
+scenario "talletetut viitteet naytetaan lisaysjasjestyksessa", {
+    given 'kayttaja on etusivulla', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8080");
     }
-    when 'listaus-v�lilehti valitaan', {
+    when 'listaus-valilehti valitaan', {
     }
-    then 'tietokannan sis�lt� n�kyy lis�ysj�rjestyksess�', {
+    then 'tietokannan sisalta nakyy lisaysjarjestyksessa', {
     }
 }
 
-scenario "viitteen tiedot on pilkuilla erotettuja listaus-v�lilehdell�", {
-    given 'k�ytt�j� on etusivulla', {
+scenario "viitteen tiedot on pilkuilla erotettuja listaus-valilehdella", {
+    given 'kayttaja on etusivulla', {
         driver = new HtmlUnitDriver();
         driver.get("http://localhost:8080");
     }
-    when 'listaus-v�lilehti valitaan', {
+    when 'listaus-valilehti valitaan', {
     }
     then 'listassa jokaisen viitteen tiedot on pilkuilla erotettuja', {
     }
