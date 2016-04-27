@@ -5,6 +5,7 @@
  */
 package main.models;
 
+import main.services.BibTexGenerator;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -48,9 +49,9 @@ public class BookletTest {
     
     @Test
     public void testToBibText() {
-        assertEquals("@BOOKLET{kk, " +
-                "title={Kissakirja2}}",
-                booklet.toBibTex());
+        String bibTex = BibTexGenerator.generateEntry(booklet);
+        assertTrue(bibTex.contains("@booklet{kk"));
+        assertTrue(bibTex.contains("title = {Kissakirja2}"));
     }
     
 }

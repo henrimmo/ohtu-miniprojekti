@@ -2,9 +2,10 @@
 package main.models;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import main.services.BibTexGenerator;
 
 @Entity
 public class Book implements BibTexEntry, Serializable{
@@ -67,20 +68,26 @@ public class Book implements BibTexEntry, Serializable{
     }
 
     @Override
-    public String toBibTex() {
-        return "@BOOK{" + BibTexGenerator.escape(id)
-                + ", author={" + BibTexGenerator.escape(author) + "}"
-                + ", title={" + BibTexGenerator.escape(title) + "}"
-                + ", publisher={" + BibTexGenerator.escape(publisher) + "}"
-                + ", year={" + year + "}"
-                + ",}";
-    }
-
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Override
+    public String getType() {
+        return "book";
+    }
+    
+    @Override
+    public Map<String, String> getFields() {
+        return new HashMap<String, String>() {{
+            put("author", author);
+            put("title", title);
+            put("publisher", publisher);
+            put("year", Integer.toString(year));
+        }};
     }
 }

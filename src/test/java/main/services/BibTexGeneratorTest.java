@@ -17,8 +17,8 @@ public class BibTexGeneratorTest {
         generator.addEntry(article);
 
         String bibtex = generator.generate();
-        assertTrue(bibtex.contains(article.toBibTex()));
-        assertTrue(bibtex.contains(book.toBibTex()));
+        assertTrue(bibtex.contains(BibTexGenerator.generateEntry(article)));
+        assertTrue(bibtex.contains(BibTexGenerator.generateEntry(book)));
     }
 
     @Test

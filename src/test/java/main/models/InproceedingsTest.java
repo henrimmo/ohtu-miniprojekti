@@ -1,6 +1,7 @@
 
 package main.models;
 
+import main.services.BibTexGenerator;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -120,9 +121,12 @@ public class InproceedingsTest {
     
     @Test
     public void testToBibText() {
-        assertEquals("@INPROCEEDINGS{jj15, author={Jouko ja Jutta}, " +
-                "title={Kiertoreitti}, booktitle={Sopulin kulku}, year={2015},}",
-                inproceedings.toBibTex());
+        String bibTex = BibTexGenerator.generateEntry(inproceedings);
+        assertTrue(bibTex.contains("@inproceedings{jj15"));
+        assertTrue(bibTex.contains("author = {Jouko ja Jutta}"));
+        assertTrue(bibTex.contains("title = {Kiertoreitti}"));
+        assertTrue(bibTex.contains("booktitle = {Sopulin kulku}"));
+        assertTrue(bibTex.contains("year = {2015}"));
     }
     
 }
