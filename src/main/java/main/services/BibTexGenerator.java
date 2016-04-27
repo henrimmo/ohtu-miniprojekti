@@ -6,6 +6,15 @@ import main.models.BibTexEntry;
 
 public class BibTexGenerator {
     private final Set<BibTexEntry> entries;
+    
+    public static String escape(String text) {
+        return text.replace("å", "{\\aa}")
+                .replace("Å", "{\\AA}")
+                .replace("ä", "\\\"{a}")
+                .replace("Ä", "\\\"{A}")
+                .replace("ö", "\\\"{o}")
+                .replace("Ö", "\\\"{O}");
+    }
 
     public BibTexGenerator() {
         entries = new HashSet<BibTexEntry>();

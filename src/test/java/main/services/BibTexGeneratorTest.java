@@ -1,6 +1,5 @@
-package main;
+package main.services;
 
-import main.services.BibTexGenerator;
 import main.models.Article;
 import main.models.Book;
 import org.junit.Test;
@@ -20,6 +19,24 @@ public class BibTexGeneratorTest {
         String bibtex = generator.generate();
         assertTrue(bibtex.contains(article.toBibTex()));
         assertTrue(bibtex.contains(book.toBibTex()));
+    }
+
+    @Test
+    public void testEscapeSingleLowerCaseLatters() {
+        assertEquals(BibTexGenerator.escape("test åäö"),
+                "test {\\aa}\\\"{a}\\\"{o}");
+    }
+
+    @Test
+    public void testEscapeSingleUpperCaseLatters() {
+        assertEquals(BibTexGenerator.escape("TEST ÅÄÖ"),
+                "TEST {\\AA}\\\"{A}\\\"{O}");
+    }
+
+    @Test
+    public void testEscapeMultipleLatters() {
+        assertEquals(BibTexGenerator.escape("ä å Ä Ö Å ö"),
+                "\\\"{a} {\\aa} \\\"{A} \\\"{O} {\\AA} \\\"{o}");
     }
 
 }

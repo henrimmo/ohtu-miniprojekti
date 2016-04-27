@@ -3,7 +3,7 @@ package main.models;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import org.springframework.data.jpa.domain.AbstractPersistable;
+import main.services.BibTexGenerator;
 
 @Entity
 public class Article implements BibTexEntry, Serializable{
@@ -68,10 +68,10 @@ public class Article implements BibTexEntry, Serializable{
     
     @Override
     public String toBibTex() {
-        return "@ARTICLE{" + id
-                + ", author={" + author + "}"
-                + ", title={" + title + "}"
-                + ", journal={" + journal + "}"
+        return "@ARTICLE{" + BibTexGenerator.escape(id)
+                + ", author={" + BibTexGenerator.escape(author) + "}"
+                + ", title={" + BibTexGenerator.escape(title) + "}"
+                + ", journal={" + BibTexGenerator.escape(journal) + "}"
                 + ", year={" + year + "}"
                 + ",}";
     }

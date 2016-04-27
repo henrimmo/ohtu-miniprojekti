@@ -20,7 +20,7 @@ public class InbookTest {
     private String author1 = "Jouko ja Jutta";
     private String title1 = "Kiertoreitti";
     private String chapter1 = "2";
-    private String publisher1 ="WSOY";
+    private String publisher1 ="WSÖY";
     private int year1 = 2015;
     private Inbook inbook = new Inbook("jj15", author1, title1, chapter1, publisher1, year1);
     
@@ -32,7 +32,7 @@ public class InbookTest {
     @Test
     public void testToBibText() {
         assertEquals("@INBOOK{jj15, author={Jouko ja Jutta}, " +
-                "title={Kiertoreitti}, chapter={2}, publisher={WSOY}, year={2015},}",
+                "title={Kiertoreitti}, chapter={2}, publisher={WS\\\"{O}Y}, year={2015},}",
                 inbook.toBibTex());
     }
     

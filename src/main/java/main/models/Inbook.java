@@ -4,6 +4,7 @@ package main.models;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import main.services.BibTexGenerator;
 
 @Entity
 public class Inbook implements BibTexEntry, Serializable{
@@ -94,12 +95,12 @@ public class Inbook implements BibTexEntry, Serializable{
 
     @Override
     public String toBibTex() {
-        return "@INBOOK{" + this.id
-                + ", author={" + this.author + "}"
-                + ", title={" + this.title + "}"
-                + ", chapter={" + this.chapter + "}"
-                + ", publisher={" + this.publisher + "}"
-                + ", year={" + this.year + "}"
+        return "@INBOOK{" + BibTexGenerator.escape(id)
+                + ", author={" + BibTexGenerator.escape(author) + "}"
+                + ", title={" + BibTexGenerator.escape(title) + "}"
+                + ", chapter={" + BibTexGenerator.escape(chapter) + "}"
+                + ", publisher={" + BibTexGenerator.escape(publisher) + "}"
+                + ", year={" + year + "}"
                 + ",}";
     }
 }

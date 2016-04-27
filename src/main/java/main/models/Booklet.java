@@ -4,6 +4,7 @@ package main.models;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import main.services.BibTexGenerator;
 
 @Entity
 public class Booklet implements BibTexEntry, Serializable{
@@ -39,8 +40,8 @@ public class Booklet implements BibTexEntry, Serializable{
 
     @Override
     public String toBibTex() {
-        return "@BOOKLET{" + id
-                + ", title={" + title + "}"
+        return "@BOOKLET{" + BibTexGenerator.escape(id)
+                + ", title={" + BibTexGenerator.escape(title) + "}"
                 + "}";
     }
 

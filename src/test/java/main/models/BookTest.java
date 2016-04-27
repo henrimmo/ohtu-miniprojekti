@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
 
 public class BookTest {
     private String author1 = "Liisa";
-    private String title1 = "Viikossa";
+    private String title1 = "Viikåssa";
     private String publisher1 = "Kuustonen";
     private int year1 = 1873;
     private Book book = new Book("liisa73", author1, title1, publisher1, year1);
@@ -103,7 +103,7 @@ public class BookTest {
      */
     @Test
     public void testGetTitle() {
-        String expResult = "Viikossa";
+        String expResult = "Viikåssa";
         String result = book.getTitle();
         assertEquals(expResult, result);
     }
@@ -121,7 +121,7 @@ public class BookTest {
     @Test
     public void testToBibText() {
         assertEquals("@BOOK{liisa73, author={Liisa}, " +
-                "title={Viikossa}, publisher={Kuustonen}, year={1873},}",
+                "title={Viik{\\aa}ssa}, publisher={Kuustonen}, year={1873},}",
                 book.toBibTex());
     }
     
