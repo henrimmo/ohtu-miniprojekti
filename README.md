@@ -26,3 +26,4 @@ https://murmuring-meadow-58244.herokuapp.com/
   - järkevä nimeäminen
   - järkevä/selkeä ja perusteltu arkkitehtuuri
   - hyvän oliosuunnittelun periaatteita tulee noudattaa
+
