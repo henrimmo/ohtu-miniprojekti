@@ -3,17 +3,7 @@ package main.controllers;
 
 import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
-import main.BibTexGenerator;
-import main.models.Article;
-import main.models.Book;
-import main.models.Booklet;
-import main.models.Inbook;
-import main.models.Inproceedings;
-import main.repositories.ArticleRepository;
-import main.repositories.BookRepository;
-import main.repositories.BookletRepository;
-import main.repositories.InbookRepository;
-import main.repositories.InproceedingsRepository;
+import main.services.DatabaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,85 +16,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class MainController {
     
     @Autowired
-    private ArticleRepository articleRepository;
-    @Autowired
-    private BookRepository bookRepository;
-    @Autowired
-    private InproceedingsRepository inproceedingsRepository;
-    @Autowired
-    private BookletRepository bookletRepository;
-    @Autowired
-    private InbookRepository inbookRepository;
+    private DatabaseService databaseService;
 
     @RequestMapping("/bibtex")
     @ResponseBody
     public void getAllBibtext(HttpServletResponse response) throws IOException{
         String filename = "bibtex.bib"; //...
         
-        BibTexGenerator generator = new BibTexGenerator();
-        for(Article a: articleRepository.findAll()){
-            generator.addEntry(a);
-        }
-        for(Book b: bookRepository.findAll()){
-            generator.addEntry(b);
-        }
-        for(Inproceedings i: inproceedingsRepository.findAll()){
-            generator.addEntry(i);
-        }
-        for(Booklet bl: bookletRepository.findAll()){
-            generator.addEntry(bl);
-        }
-        
-        for(Inbook ib: inbookRepository.findAll()){
-            generator.addEntry(ib);
-        }
+        String result = databaseService.getAllAsBibtex();
         
         response.setContentType("text/bib");
         response.setHeader("Content-Disposition", "attachment; filename=\""
                 + filename + "\"");
-        response.getOutputStream().print(generator.generate());
+        response.getOutputStream().print(result);
     }
     
     @RequestMapping(method = RequestMethod.GET)
     public String list(Model model) {
-        model.addAttribute("aList", articleRepository.findAll());
-        model.addAttribute("bList", bookRepository.findAll());
-        model.addAttribute("iList", inproceedingsRepository.findAll());
-        model.addAttribute("blList", bookletRepository.findAll());
-        model.addAttribute("ibList", inbookRepository.findAll());
+        databaseService.addAllToModel(model);
         return "index";
-    }
-    
-    
-    @RequestMapping("/addtestdata")
-    @ResponseBody
-    public String addTestData(){
-        Article a1 = new Article("test00", "Test Author","Test title","Test Journal",2000);
-        Article a2 = new Article("second01","Second Author","Second title","Someother Journal",2001);
-        Book b = new Book("book16","Book Author","Book 1","Publisher 1",2016);
-        Inproceedings i = new Inproceedings("inp16","Inproceedings Author","Inproceedings 1","Booktitle 1",2016);
-        
-        articleRepository.save(a1);
-        articleRepository.save(a2);
-        bookRepository.save(b);
-        inproceedingsRepository.save(i);
-        
-        return "OK";
-    }
-    
-    @RequestMapping(value = "/deletetestdata", method = RequestMethod.GET)
-    @ResponseBody
-    public String deleteTestD(){
-        Article a1 = articleRepository.findOne("test00");
-        Article a2 = articleRepository.findOne("second01");
-        Book b = bookRepository.findOne("book16");
-        Inproceedings i = inproceedingsRepository.findOne("inp16");
-        
-        articleRepository.delete(a1);
-        articleRepository.delete(a2);
-        bookRepository.delete(b);
-        inproceedingsRepository.delete(i);
-        
-        return "OK";
     }
 }

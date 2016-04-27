@@ -6,13 +6,14 @@ import javax.persistence.Id;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
-public class Article implements BibTexEntry, Serializable {
+public class Article implements BibTexEntry, Serializable{
     private String author;
     private String title;
     private String journal;
     private int year;
     @Id
     private String id;
+    private String tag;
 
     public Article(){
     }
@@ -50,6 +51,14 @@ public class Article implements BibTexEntry, Serializable {
 
     public String getTitle() {
         return title;
+    }
+    
+    public String getTag(){
+        return tag;
+    }
+    
+    public void setTag(String tag){
+        this.tag = tag;
     }
 
 

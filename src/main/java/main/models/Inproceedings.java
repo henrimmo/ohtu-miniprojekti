@@ -6,13 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Inproceedings implements BibTexEntry, Serializable {
+public class Inproceedings implements BibTexEntry, Serializable{
     private String author;
     private String title;
     private String booktitle;
     private int year;
     @Id
     private String id;
+    private String tag;
 
     public Inproceedings(){
         
@@ -57,6 +58,15 @@ public class Inproceedings implements BibTexEntry, Serializable {
         return year;
     }
 
+    
+    public String getTag(){
+        return tag;
+    }
+    
+    public void setTag(String tag){
+        this.tag = tag;
+    }
+    
     @Override
     public String toBibTex() {
         return "@INPROCEEDINGS{" + id

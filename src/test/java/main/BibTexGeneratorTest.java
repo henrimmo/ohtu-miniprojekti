@@ -1,5 +1,6 @@
 package main;
 
+import main.services.BibTexGenerator;
 import main.models.Article;
 import main.models.Book;
 import org.junit.Test;

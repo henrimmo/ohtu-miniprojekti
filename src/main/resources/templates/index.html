@@ -30,6 +30,7 @@
                     <th>Title</th>
                     <th>Journal</th>
                     <th>Year</th>
+                    <th>Tag</th>
                     <th>Delete</th>
                   </tr>
                 </thead>
@@ -39,6 +40,7 @@
                     <td th:text="${article.title}"></td>
                     <td th:text="${article.journal}"></td>
                     <td th:text="${article.year}"></td>
+                    <td th:text="${article.tag}"></td>
                     <td><a th:href="@{/articles/delete/{id}(id=${article.id})}">Delete</a></td>
                   </tr>
                 </tbody>
@@ -60,6 +62,7 @@
                     <th>Title</th>
                     <th>Publisher</th>
                     <th>Year</th>
+                    <th>Tag</th>
                     <th>Delete</th>
                   </tr>
                 </thead>
@@ -69,6 +72,7 @@
                     <td th:text="${book.title}"></td>
                     <td th:text="${book.publisher}"></td>
                     <td th:text="${book.year}"></td>
+                    <td th:text="${book.tag}"></td>
                     <td><td><a th:href="@{/books/delete/{id}(id=${book.id})}">Delete</a></td></td>
                   </tr>
                 </tbody>
@@ -90,6 +94,7 @@
                     <th>Title</th>
                     <th>Booktitle</th>
                     <th>Year</th>
+                    <th>Tag</th>
                     <th>Delete</th>
                   </tr>
                 </thead>
@@ -99,6 +104,7 @@
                     <td th:text="${inproceedings.title}"></td>
                     <td th:text="${inproceedings.booktitle}"></td>
                     <td th:text="${inproceedings.year}"></td>
+                    <td th:text="${inproceedings.tag}"></td>
                     <td><td><a th:href="@{/inproceedings/delete/{id}(id=${inproceedings.id})}">Delete</a></td></td>
                   </tr>
                 </tbody>
@@ -145,6 +151,7 @@
                     <th>Chapter</th>
                     <th>Publisher</th>
                     <th>Year</th>
+                    <th>Tag</th>
                     <th>Delete</th>
                   </tr>
                 </thead>
@@ -155,6 +162,7 @@
                     <td th:text="${inbook.chapter}"></td>
                     <td th:text="${inbook.publisher}"></td>
                     <td th:text="${inbook.year}"></td>
+                    <td th:text="${inbook.tag}"></td>
                     <td><td><a th:href="@{/inbooks/delete/{id}(id=${inbook.id})}">Delete</a></td></td>
                   </tr>
                 </tbody>

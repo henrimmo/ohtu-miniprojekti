@@ -7,16 +7,13 @@
     </head>
     <body>
     <form action="#" th:action="@{/inbooks/new}" th:object="${inbook}" method="post">
-        
-        
-        
-
         <p>Id: <input type="text" th:field="*{id}" /></p>
         <p>Author: <input type="text" th:field="*{author}" /></p>
         <p>Title: <input type="text" th:field="*{title}" /></p>
         <p>Chapter: <input type="text" th:field="*{chapter}" /></p>
         <p>Publisher: <input type="text" th:field="*{publisher}" /></p>
         <p>Year: <input type="number" th:field="*{year}" /></p>
+        <p>Project-tag: <input type="text" th:field="*{tag}" /></p>
         <p><input type="submit" value="Tallenna"/></p>
     </form>
         

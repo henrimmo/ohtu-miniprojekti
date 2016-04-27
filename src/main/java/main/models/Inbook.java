@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Inbook implements BibTexEntry, Serializable {
+public class Inbook implements BibTexEntry, Serializable{
     
     private String author;
     private String title;
@@ -15,6 +15,8 @@ public class Inbook implements BibTexEntry, Serializable {
     private int year;
     @Id
     private String id;
+    private String tag;
+    
 
     public Inbook(){
     }
@@ -79,6 +81,14 @@ public class Inbook implements BibTexEntry, Serializable {
 
     public int getYear() {
         return year;
+    }
+    
+    public String getTag(){
+        return tag;
+    }
+    
+    public void setTag(String tag){
+        this.tag = tag;
     }
     
 
