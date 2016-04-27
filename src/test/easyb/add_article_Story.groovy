@@ -1,3 +1,10 @@
+import main.*
+import main.controller.*
+import main.models.*
+import main.repositories.*
+import org.openqa.selenium.*
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+
 description 'K�ytt�j� pystyy tallettamaan artikkelin'
 
 scenario "k�ytt�j� pystyy tallettamaan artikkelin", {
