@@ -8,8 +8,8 @@ description 'Kayttaja pystyy tallettamaan artikkelin'
 scenario "kayttaja pystyy tallettamaan artikkelin", {
     given 'lisaa artikkeli -kasky valittu', {
         driver = new HtmlUnitDriver();
-        driver.get("http://localhost:8080");
-        element = driver.findElement(By.linkText("artikkeli"));
+        driver.get("http://localhost:8080/");
+        element = driver.findElement(By.linkText("Add article"));
         element.click();
     }
 
@@ -22,16 +22,15 @@ scenario "kayttaja pystyy tallettamaan artikkelin", {
         element.sendKeys("Varit");
         element = driver.findElement(By.name("year"));
         element.sendKeys("2010");
-        element = driver.findElement(By.name("volume"));
-        element.sendKeys("3");
         element = driver.findElement(By.name("lisaa"));
         element.submit();
     }
 
     then 'artikkeli on lisatty tietokantaan', {
-        driver.getPageSource().contains("Artikkeli lisatty").shouldBe true
+        driver.getPageSource().contains("Sini").shouldBe true
     }
 }
+
 //joka kentalle oma "tyhja kentta"-scenario:
 scenario "kayttaja ei tayta yhta kenttaa eika artikkelia lisata", {
     given 'lisaa artikkeli -kasky valittu', {
