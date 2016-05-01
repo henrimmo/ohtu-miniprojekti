@@ -20,6 +20,18 @@
         <a href="/bibtex">Download BibTeX</a>
         
         <br></br>
+        <br></br>
+        
+        <form action="/" method="get">
+            Search by tag:
+            <input type="text" name="tag"></input>
+            <input type="submit" value="Search"></input>
+        </form>
+        <form action="/" method="get">
+            <input type="submit" value="Show all"></input>
+        </form>
+        
+        <br></br>
         
         <div th:if="${not #lists.isEmpty(aList)}">
              <h3>Articles</h3>

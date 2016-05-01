@@ -66,4 +66,26 @@ public class DatabaseService {
         
         return generator.generate();
     }
+    
+    public String getToBibTexByTag(String tag){
+        BibTexGenerator generator = new BibTexGenerator();
+        for(Article a: articleRepository.findByTag(tag)){
+            generator.addEntry(a);
+        }
+        for(Book b: bookRepository.findByTag(tag)){
+            generator.addEntry(b);
+        }
+        for(Inproceedings i: inproceedingsRepository.findByTag(tag)){
+            generator.addEntry(i);
+        }
+        for(Booklet bl: bookletRepository.findByTag(tag)){
+            generator.addEntry(bl);
+        }
+        
+        for(Inbook ib: inbookRepository.findByTag(tag)){
+            generator.addEntry(ib);
+        }
+        
+        return generator.generate();
+    }
 }
