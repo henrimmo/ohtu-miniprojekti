@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import main.repositories.InbookRepository;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,5 +43,12 @@ public class InbookController {
         return "redirect:/";
     }
     
+    @Transactional
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String editArticle(@PathVariable String id, Model model){
+        Inbook ib = inbookRepository.findOne(id);
+        model.addAttribute(ib);
+        return "inbook";
+    }
    
 }
