@@ -38,7 +38,7 @@ public class ManualTest {
     @Test
     public void testToBibText() {
         String bibTex = BibTexGenerator.generateEntry(manual);
-        assertTrue(bibTex.contains("@booklet{kk"));
+        assertTrue(bibTex.contains("@manual{kk"));
         assertTrue(bibTex.contains("title = {Kissakirja2}"));
     }
     
