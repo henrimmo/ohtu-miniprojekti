@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //
 //package main.models;
 //
@@ -44,6 +45,8 @@
 //    
 //}
 
+=======
+>>>>>>> 1e76babc75b9e17c69b5d0a92e0e16d905bfc474
 package main.models;
 
 import main.services.BibTexGenerator;
