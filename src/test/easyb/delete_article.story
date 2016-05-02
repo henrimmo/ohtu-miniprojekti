@@ -18,6 +18,6 @@ scenario "kayttaja pystyy poistamaan artikkelin", {
     }
 
     then 'artikkeli poistuu tietokannasta', {
-       driver.getPageSource().contains("test00").shouldBe false
+       driver.getPageSource().contains("Second Auhtor").shouldBe false
     }
 }

@@ -20,10 +20,10 @@ scenario "kayttaja pystyy poistamaan artikkelin", {
     }
 
     then 'vain oikean tagin omaavien viitteiden tulisi nakya', {
-       driver.getPageSource().contains("test00").shouldBe true
-       driver.getPageSource().contains("book16").shouldBe true
+       driver.getPageSource().contains("Test title").shouldBe true
+       driver.getPageSource().contains("Book 1").shouldBe true
 
-       driver.getPageSource().contains("second01").shouldBe false
-       driver.getPageSource().contains("inp16").shouldBe false
+       driver.getPageSource().contains("Second title").shouldBe false
+       driver.getPageSource().contains("Inproceedings 1").shouldBe false
     }
 }

@@ -30,7 +30,7 @@ scenario "kayttaja pystyy tallettamaan artikkelin", {
     }
 }
 
-
+/*
 //joka kentalle oma "tyhja kentta"-scenario:
 scenario "kayttaja ei tayta yhta kenttaa eika artikkelia lisata", {
     given 'lisaa artikkeli -kasky valittu', {
@@ -52,7 +52,7 @@ scenario "kayttaja ei tayta yhta kenttaa eika artikkelia lisata", {
         containsSini(false);
     }
 }
-
+*/
 
 scenario "kentassa aakkasia ja artikkeli lisataan", {
     given 'lisaa artikkeli -kasky valittu', {
@@ -77,7 +77,7 @@ scenario "kentassa aakkasia ja artikkeli lisataan", {
     }
 }
 
-
+/*
 scenario "year-kentassa on muuta kuin numeroita eika artikkelia lisata", {
     given 'lisaa artikkeli -kasky valittu', {
         start();
@@ -123,7 +123,7 @@ scenario "year-kentan syatteen pituus ei ole nelja eika artikkelia lisata", {
         containsSini(false);
     }
 }
-
+*/
 
 void start(){
     driver = new HtmlUnitDriver();

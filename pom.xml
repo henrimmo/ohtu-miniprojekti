@@ -176,7 +176,6 @@
                     <instrumentation>
                         <ignoreTrivial>true</ignoreTrivial>
                         <excludes>
-                            <exclude>main/controllers/**</exclude>
                             <exclude>main/App.class</exclude>
                             <exclude>main/WebConfig.class</exclude>
                         </excludes>

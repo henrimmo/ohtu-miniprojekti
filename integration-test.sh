@@ -4,7 +4,7 @@ java -Dspring.profiles.active=dev -Dserver.port=8080 -jar  target/ohtu-miniproje
 SPRING_PID=$!
 echo $SPRING_PID
 
-sleep 20s # Give the server enough time to start
+sleep 30s # Give the server enough time to start
 
 mvn integration-test
 RETURN_CODE=$?
