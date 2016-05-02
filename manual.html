@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Add a new manual</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+    <form action="#" th:action="@{/manuals/new}" th:object="${manual}" method="post">
+        <p>Id:  <input type="text" th:field="*{id}" /></p>
+        <p>Title: <input type="text" th:field="*{title}" /></p>
+        <p>Project-tag: <input type="text" th:field="*{tag}" /></p>
+        <p><input type="submit" value="Tallenna" /></p>
+    </form>
+    </body>
+</html>
