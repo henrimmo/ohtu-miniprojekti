@@ -10,11 +10,13 @@ import main.repositories.BookletRepository;
 import main.repositories.InbookRepository;
 import main.repositories.InproceedingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+@Profile("dev")
 @Controller
 public class TestController {
     
@@ -29,8 +31,11 @@ public class TestController {
     @ResponseBody
     public String addTestData(MainController mainController) {
         Article a1 = new Article("test00", "Test Author", "Test title", "Test Journal", 2000);
+        a1.setTag("test1");
         Article a2 = new Article("second01", "Second Author", "Second title", "Someother Journal", 2001);
+        a2.setTag("test2");
         Book b = new Book("book16", "Book Author", "Book 1", "Publisher 1", 2016);
+        b.setTag("test1");
         Inproceedings i = new Inproceedings("inp16", "Inproceedings Author", "Inproceedings 1", "Booktitle 1", 2016);
         articleRepository.save(a1);
         articleRepository.save(a2);

@@ -1,4 +1,7 @@
 language: java
+install: true
+script:
+  - ./integration-test.sh
 after_success:
   - mvn clean cobertura:cobertura coveralls:report
 deploy:

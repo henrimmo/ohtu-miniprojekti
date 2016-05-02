@@ -7,13 +7,12 @@ description 'Kayttaja pystyy tallettamaan inproceedings'
 
 scenario "kayttaja pystyy tallettamaan inproceedings", {
     given 'add inproceedings -kasky valittu', {
-        driver = new HtmlUnitDriver();
-        driver.get("http://localhost:8080");
-        element = driver.findElement(By.linkText("inproceedings"));
-        element.click();
+        start();
     }
 
     when 'kentat taytetty inproceedingsin tiedoilla', {
+        element = driver.findElement(By.name("id"));
+        element.sendKeys("sini1");
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
@@ -27,20 +26,17 @@ scenario "kayttaja pystyy tallettamaan inproceedings", {
     }
 
     then 'inproceedings on lisatty tietokantaan', {
-        driver.getPageSource().contains("Inproceedings lisatty").shouldBe true
+        containsSini(true);
     }
 }
 //joka kentalle oma "tyhja kentta"-scenario:
 scenario "kayttaja ei tayta yhta kenttaa eika inproceedinsia lisata", {
     given 'add inproceedins -kasky valittu', {
-        driver = new HtmlUnitDriver();
-        driver.get("http://localhost:8080");
-        element = driver.findElement(By.linkText("inproceedins"));
-        element.click();
+        start();
     }
     when 'yksi kentta jaa tyhjaksi', {
-        element = driver.findElement(By.name("author"));
-        element.sendKeys("Sini");
+        element = driver.findElement(By.name("id"));
+        element.sendKeys("sini1");
         element = driver.findElement(By.name("title"));
         element.sendKeys("Sinista");
         element = driver.findElement(By.name("journal"));
@@ -49,22 +45,21 @@ scenario "kayttaja ei tayta yhta kenttaa eika inproceedinsia lisata", {
         element.submit();
     }
     then 'inproceedinsia ei lisatty tietokantaan', {
-        driver.getPageSource().contains("inproceedingsia ei lisätty").shouldBe true
+        containsSini(false);
     }
 }
 
 scenario "kentassa aakkasia ja inproceedings lisataan", {
     given 'add inproceedings -kasky valittu', {
-        driver = new HtmlUnitDriver();
-        driver.get("http://localhost:8080");
-        element = driver.findElement(By.linkText("inproceedings"));
-        element.click();
+        start();
     }
     when 'inproceedingsin nimessa aakkasia', {
+        element = driver.findElement(By.name("id"));
+        element.sendKeys("sini1");
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
-        element.sendKeys("Sinista");
+        element.sendKeys("Sinistä");
         element = driver.findElement(By.name("journal"));
         element.sendKeys("Varit");
         element = driver.findElement(By.name("year"));
@@ -73,18 +68,17 @@ scenario "kentassa aakkasia ja inproceedings lisataan", {
         element.submit();
     }
     then 'inproceeding on lisatty tietokantaan', {
-        driver.getPageSource().contains("Artikkeli lisatty").shouldBe true
+        driver.getPageSource().contains("Sinistä").shouldBe true
     }
 }
 
 scenario "year-kentassa on muuta kuin numeroita eika inproceedingsia lisata", {
     given 'add inproceedings -kasky valittu', {
-        driver = new HtmlUnitDriver();
-        driver.get("http://localhost:8080");
-        element = driver.findElement(By.linkText("inproceedings"));
-        element.click();
+        start();
     }
     when 'year-kentassa kirjain', {
+        element = driver.findElement(By.name("id"));
+        element.sendKeys("sini1");
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
@@ -97,18 +91,17 @@ scenario "year-kentassa on muuta kuin numeroita eika inproceedingsia lisata", {
         element.submit();
     }
     then 'inproceedingsia ei lisatty tietokantaan', {
-        driver.getPageSource().contains("inproceedingsia ei lisatty").shouldBe true
+        containsSini(false);
     }
 }
 
 scenario "year-kentan syatteen pituus ei ole nelja eika inproceedingsia lisata", {
     given 'add inproceedings -kasky valittu', {
-        driver = new HtmlUnitDriver();
-        driver.get("http://localhost:8080");
-        element = driver.findElement(By.linkText("inproceedings"));
-        element.click();
+        start();
     }
     when 'year-kentassa kolme numeroa', {
+        element = driver.findElement(By.name("id"));
+        element.sendKeys("sini1");
         element = driver.findElement(By.name("author"));
         element.sendKeys("Sini");
         element = driver.findElement(By.name("title"));
@@ -121,6 +114,20 @@ scenario "year-kentan syatteen pituus ei ole nelja eika inproceedingsia lisata",
         element.submit();
     }
     then 'inproceedingsia ei lisatty tietokantaan', {
-        driver.getPageSource().contains("inproceedingsia ei lisatty").shouldBe true
+        containsSini(false);
     }
+}
+
+void start(){
+    driver = new HtmlUnitDriver();
+    driver.get("http://localhost:8080/");
+    element = driver.findElement(By.linkText("Add inproceedings"));
+    element.click();
+}
+
+void containsSini(boolean condition){
+    driver.getPageSource().contains("Sini").shouldBe condition
+    driver.getPageSource().contains("Sinista").shouldBe condition
+    driver.getPageSource().contains("Varit").shouldBe condition
+    driver.getPageSource().contains("2010").shouldBe condition
 }

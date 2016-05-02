@@ -8,15 +8,16 @@ description 'Kayttaja pystyy poistamaan artikkelin'
 scenario "kayttaja pystyy poistamaan artikkelin", {
     given 'käyttäjä on etusivulla', {
        driver = new HtmlUnitDriver();
+       driver.get("http://localhost:8080/addtestdata");
        driver.get("http://localhost:8080");
     }
 
     when 'delete-käsky valitaan', {
-       element = driver.findElement(By.linkText("delete"));
+       element = driver.findElement(By.linkText("Delete"));
        element.click();
     }
 
     then 'artikkeli poistuu tietokannasta', {
-       driver.getPageSource().contains("Artikkeli poistettu").shouldBe true
+       driver.getPageSource().contains("test00").shouldBe false
     }
 }
