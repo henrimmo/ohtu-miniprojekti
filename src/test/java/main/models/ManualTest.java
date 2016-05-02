@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //
 //package main.models;
 //
@@ -44,7 +43,6 @@
 //    }
 //    
 //}
-=======
 
 package main.models;
 
@@ -90,4 +88,3 @@ public class ManualTest {
     }
     
 }
->>>>>>> 6f116a91d936d1bc142149725076ba4a37f7a490

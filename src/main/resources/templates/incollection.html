@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Add a new incollection</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+    <form action="#" th:action="@{/incollection/new}" th:object="${incollection}" method="post">
+        <p>Id:  <input type="text" th:field="*{id}" /></p>
+        <p>Author:  <input type="text" th:field="*{author}" /></p>
+        <p>Title: <input type="text" th:field="*{title}" /></p>
+        <p>Booktitle: <input type="text" th:field="*{booktitle}" /></p>
+        <p>Publisher: <input type="text" th:field="*{publisher}" /></p>
+        <p>Year: <input type="number" th:field="*{year}" /></p>
+        <p>Project-tag: <input type="text" th:field="*{tag}" /></p>
+        <p><input type="submit" value="Tallenna" id="incollection-submit" /></p>
+    </form>
+    </body>
+</html>
