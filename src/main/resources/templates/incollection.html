@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
     <body>
-    <form action="#" th:action="@{/incollection/new}" th:object="${incollection}" method="post">
+    <form action="#" th:action="@{/incollections/new}" th:object="${incollection}" method="post">
         <p>Id:  <input type="text" th:field="*{id}" /></p>
         <p>Author:  <input type="text" th:field="*{author}" /></p>
         <p>Title: <input type="text" th:field="*{title}" /></p>
