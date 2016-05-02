@@ -1,6 +1,8 @@
 language: java
-install: true
+before_install:
+  - mv src/test/easyb src/test/easyb_skip
 script:
+  - mv src/test/easyb_skip src/test/easyb
   - ./integration-test.sh
 after_success:
   - mvn clean cobertura:cobertura coveralls:report
