@@ -38,4 +38,15 @@ public class BookController {
         
         return "redirect:/";
     }
+    
+    
+    
+    
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String editBook(@PathVariable String id, Model model){
+        Book b = bookRepository.findOne(id);
+        model.addAttribute(b);
+        
+        return "book";
+    }
 }

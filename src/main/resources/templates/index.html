@@ -54,6 +54,7 @@
                     <td th:text="${article.year}"></td>
                     <td th:text="${article.tag}"></td>
                     <td><a th:href="@{/articles/delete/{id}(id=${article.id})}">Delete</a></td>
+                    <td><a th:href="@{/articles/edit/{id}(id=${article.id})}">Edit</a></td>
                   </tr>
                 </tbody>
             </table>
@@ -86,6 +87,7 @@
                     <td th:text="${book.year}"></td>
                     <td th:text="${book.tag}"></td>
                     <td><td><a th:href="@{/books/delete/{id}(id=${book.id})}">Delete</a></td></td>
+                    <td><a th:href="@{/books/edit/{id}(id=${book.id})}">Edit</a></td>
                   </tr>
                 </tbody>
             </table>
@@ -118,6 +120,7 @@
                     <td th:text="${inproceedings.year}"></td>
                     <td th:text="${inproceedings.tag}"></td>
                     <td><td><a th:href="@{/inproceedings/delete/{id}(id=${inproceedings.id})}">Delete</a></td></td>
+                    <td><a th:href="@{/inproceedings/edit/{id}(id=${inproceedings.id})}">Edit</a></td>
                   </tr>
                 </tbody>
             </table>
@@ -142,6 +145,7 @@
                   <tr th:each="booklet : ${blList}">
                     <td th:text="${booklet.title}"></td>
                     <td><td><a th:href="@{/booklets/delete/{id}(id=${booklet.id})}">Delete</a></td></td>
+                    <td><a th:href="@{/booklets/edit/{id}(id=${booklet.id})}">Edit</a></td>
                   </tr>
                 </tbody>
             </table>
@@ -176,6 +180,7 @@
                     <td th:text="${inbook.year}"></td>
                     <td th:text="${inbook.tag}"></td>
                     <td><td><a th:href="@{/inbooks/delete/{id}(id=${inbook.id})}">Delete</a></td></td>
+                    <td><a th:href="@{/inbooks/edit/{id}(id=${inbook.id})}">Edit</a></td>
                   </tr>
                 </tbody>
             </table>

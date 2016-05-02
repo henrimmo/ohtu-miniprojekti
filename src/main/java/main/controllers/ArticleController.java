@@ -1,10 +1,12 @@
 package main.controllers;
 
+
 import main.models.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import main.repositories.ArticleRepository;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -45,5 +47,12 @@ public class ArticleController {
         articleRepository.delete(a);
         
         return "redirect:/";
+    }
+    @Transactional
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String editArticle(@PathVariable String id, Model model){
+        Article a = articleRepository.findOne(id);
+        model.addAttribute(a);
+        return "article";
     }
 }

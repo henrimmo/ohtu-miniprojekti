@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import main.repositories.BookletRepository;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,5 +37,13 @@ public class BookletController {
         bookletRepository.delete(b);
         
         return "redirect:/";
+    }
+    
+    @Transactional
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String editArticle(@PathVariable String id, Model model){
+        Booklet bl = bookletRepository.findOne(id);
+        model.addAttribute(bl);
+        return "booklet";
     }
 }
