@@ -31,8 +31,8 @@ public class DatabaseService {
         model.addAttribute("iList", inproceedingsRepository.findAll());
         model.addAttribute("blList", bookletRepository.findAll());
         model.addAttribute("ibList", inbookRepository.findAll());
-        model.addAtrribute("mList", manualRepository.findAll());
-        model.addAtrribute("incList", incollectionRepository.findAll());
+        model.addAttribute("mList", manualRepository.findAll());
+        model.addAttribute("incList", incollectionRepository.findAll());
     }
     
     public void addToModelByTag(Model model, String tag){
@@ -41,8 +41,8 @@ public class DatabaseService {
         model.addAttribute("iList", inproceedingsRepository.findByTag(tag));
         model.addAttribute("blList", bookletRepository.findByTag(tag));
         model.addAttribute("ibList", inbookRepository.findByTag(tag));
-        model.addAtrribute("mList", manualRepository.findByTag(tag));
-        model.addAtrribute("incList", incollectionRepository.findByTag(tag));
+        model.addAttribute("mList", manualRepository.findByTag(tag));
+        model.addAttribute("incList", incollectionRepository.findByTag(tag));
     }
     
     public String getAllAsBibtex(){
