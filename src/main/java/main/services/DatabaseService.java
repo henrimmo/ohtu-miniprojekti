@@ -1,16 +1,8 @@
 
 package main.services;
 
-import main.models.Article;
-import main.models.Book;
-import main.models.Booklet;
-import main.models.Inbook;
-import main.models.Inproceedings;
-import main.repositories.ArticleRepository;
-import main.repositories.BookRepository;
-import main.repositories.BookletRepository;
-import main.repositories.InbookRepository;
-import main.repositories.InproceedingsRepository;
+import main.models.*;
+import main.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -28,6 +20,10 @@ public class DatabaseService {
     private BookletRepository bookletRepository;
     @Autowired
     private InbookRepository inbookRepository;
+    @Autowired
+    private ManualRepository manualRepository;
+    @Autowired
+    private IncollectionRepository incollectionRepository;
     
     public void addAllToModel(Model model){
         model.addAttribute("aList", articleRepository.findAll());
@@ -35,6 +31,8 @@ public class DatabaseService {
         model.addAttribute("iList", inproceedingsRepository.findAll());
         model.addAttribute("blList", bookletRepository.findAll());
         model.addAttribute("ibList", inbookRepository.findAll());
+        model.addAtrribute("mList", manualRepository.findAll());
+        model.addAtrribute("incList", incollectionRepository.findAll());
     }
     
     public void addToModelByTag(Model model, String tag){
@@ -43,6 +41,8 @@ public class DatabaseService {
         model.addAttribute("iList", inproceedingsRepository.findByTag(tag));
         model.addAttribute("blList", bookletRepository.findByTag(tag));
         model.addAttribute("ibList", inbookRepository.findByTag(tag));
+        model.addAtrribute("mList", manualRepository.findByTag(tag));
+        model.addAtrribute("incList", incollectionRepository.findByTag(tag));
     }
     
     public String getAllAsBibtex(){
@@ -64,6 +64,14 @@ public class DatabaseService {
             generator.addEntry(ib);
         }
         
+        for(Manual m: manualRepository.findAll()){
+            generator.addEntry(m);
+        }
+        
+        for(Incollection i: incollectionRepository.findAll()){
+            generator.addEntry(i);
+        }
+
         return generator.generate();
     }
     
@@ -84,6 +92,14 @@ public class DatabaseService {
         
         for(Inbook ib: inbookRepository.findByTag(tag)){
             generator.addEntry(ib);
+        }
+        
+        for(Manual m: manualRepository.findByTag(tag)){
+            generator.addEntry(m);
+        }
+        
+        for(Incollection i: incollectionRepository.findByTag(tag)){
+            generator.addEntry(i);
         }
         
         return generator.generate();
