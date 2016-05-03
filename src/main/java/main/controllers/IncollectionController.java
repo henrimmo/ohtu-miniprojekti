@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("incollection")
+@RequestMapping("incollections")
 public class IncollectionController {
     @Autowired
     private IncollectionRepository incollectionRepository;
