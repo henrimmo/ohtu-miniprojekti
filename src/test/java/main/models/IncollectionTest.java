@@ -91,7 +91,7 @@ public class IncollectionTest {
     @Test
     public void testGetPublisher() {
         String expResult = "Elukat";
-        String result = incollection.getAuthor();
+        String result = incollection.getPublisher();
         assertEquals(expResult, result);
     }
 
