@@ -1,4 +1,4 @@
-/*import main.*
+import main.*
 
 import org.openqa.selenium.*
 import org.openqa.selenium.htmlunit.HtmlUnitDriver
@@ -70,4 +70,3 @@ void start(){
 void containsSini(boolean condition){
     driver.getPageSource().contains("Sinista").shouldBe condition
 }
-*/
